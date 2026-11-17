@@ -1,0 +1,1031 @@
+[
+  {
+    "id": "text-01",
+    "family": "Small text",
+    "label": "Small text",
+    "variant": "Larger panel",
+    "question": "Read the four-character UNIT code in the orange-outlined service record.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "B724": "B724",
+      "K139": "K139",
+      "K193": "K193",
+      "B174": "B174",
+      "B742": "B742",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "B742",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "UNIT": "B742"
+      }
+    },
+    "image_path": "images/text-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "a9dc01a6b4aa16a30d281e7adfeba02ffd462ce97f49184c7da776e3efeaf760",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "text-02",
+    "family": "Small text",
+    "label": "Small text",
+    "variant": "Smaller panel",
+    "question": "Read the four-character UNIT code in the orange-outlined service record.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "K193": "K193",
+      "B174": "B174",
+      "B724": "B724",
+      "B742": "B742",
+      "K139": "K139",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "K193",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "UNIT": "K193"
+      }
+    },
+    "image_path": "images/text-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "d6b6256374c30d4902af26b8c48a4c8271f8076625ce126cc4941cb697e86d91",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "count-01",
+    "family": "Counting",
+    "label": "Counting",
+    "variant": "Larger panel",
+    "question": "How many screw heads have a cross-shaped slot in the orange-outlined tray? Do not count the plain rings.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "10": "10",
+      "8": "8",
+      "12": "12",
+      "11": "11",
+      "6": "6",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "8",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "objects": [
+          {
+            "centre": [
+              92,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              92,
+              188
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              188
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              188
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              92,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              225,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              358,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              354
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              354
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              354
+            ],
+            "kind": "plain ring"
+          }
+        ],
+        "cross_slot_count": 8
+      }
+    },
+    "image_path": "images/count-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "294e76ee15de4ccab233703bd6feed60e8ac352fb7af00e41d500ad2c4f31580",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "count-02",
+    "family": "Counting",
+    "label": "Counting",
+    "variant": "Smaller panel",
+    "question": "How many screw heads have a cross-shaped slot in the orange-outlined tray? Do not count the plain rings.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "11": "11",
+      "8": "8",
+      "12": "12",
+      "10": "10",
+      "6": "6",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "11",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "objects": [
+          {
+            "centre": [
+              92,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              358,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              92,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              225,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              225,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              358,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              354
+            ],
+            "kind": "plain ring"
+          }
+        ],
+        "cross_slot_count": 11
+      }
+    },
+    "image_path": "images/count-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "65bece39d4747c6501eb751a53b0a6a98611483e66c1333f6f5ab189b23d215d",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "thermal-01",
+    "family": "Thermal colorbar",
+    "label": "Thermal colorbar",
+    "variant": "Larger panel",
+    "question": "What is the upper endpoint printed on the colorbar in the orange-outlined thermal display, in degrees C? Read the legend, not the brightest image pixel.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "40": "40",
+      "62": "62",
+      "48": "48",
+      "33": "33",
+      "18": "18",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "48",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "upper_endpoint_C": 48,
+        "lower_endpoint_C": 18,
+        "radiometric": false
+      }
+    },
+    "image_path": "images/thermal-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "acdc108a043c9a90ce8bcb4877864340aa2dd86efc14b36f0c5c1eff393aa813",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "thermal-02",
+    "family": "Thermal colorbar",
+    "label": "Thermal colorbar",
+    "variant": "Smaller panel",
+    "question": "What is the upper endpoint printed on the colorbar in the orange-outlined thermal display, in degrees C? Read the legend, not the brightest image pixel.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "48": "48",
+      "40": "40",
+      "18": "18",
+      "33": "33",
+      "62": "62",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "62",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "upper_endpoint_C": 62,
+        "lower_endpoint_C": 18,
+        "radiometric": false
+      }
+    },
+    "image_path": "images/thermal-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "0274f7c8a77f3fcedd16d295b30d1c249294141094934c0339f1a0972b18281a",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "chart-01",
+    "family": "Chart reading",
+    "label": "Chart reading",
+    "variant": "Larger panel",
+    "question": "Read the value printed above Cedar's bar in the orange-outlined chart.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "48": "48",
+      "24": "24",
+      "62": "62",
+      "71": "71",
+      "37": "37",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "37",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "Alder": 24,
+        "Birch": 48,
+        "Cedar": 37,
+        "Delta": 71
+      }
+    },
+    "image_path": "images/chart-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "98347d422cb950638f819eef614bfeeacb4558516112b7ad6d3534fd21f08a63",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "chart-02",
+    "family": "Chart reading",
+    "label": "Chart reading",
+    "variant": "Smaller panel",
+    "question": "Read the value printed above Cedar's bar in the orange-outlined chart.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "62": "62",
+      "37": "37",
+      "24": "24",
+      "71": "71",
+      "48": "48",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "62",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "Alder": 24,
+        "Birch": 48,
+        "Cedar": 62,
+        "Delta": 71
+      }
+    },
+    "image_path": "images/chart-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "7f73510f620b1cecc3a46a7fb547053ef0a5bad74d1505768ada51586d11fd9e",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "table-01",
+    "family": "Table lookup",
+    "label": "Table lookup",
+    "variant": "Larger panel",
+    "question": "Read the Friday value in row D of the orange-outlined table.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "24": "24",
+      "14": "14",
+      "21": "21",
+      "19": "19",
+      "17": "17",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "17",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "columns": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "rows": {
+          "A": [
+            12,
+            19,
+            21,
+            8,
+            14
+          ],
+          "B": [
+            9,
+            14,
+            16,
+            22,
+            6
+          ],
+          "C": [
+            20,
+            7,
+            15,
+            11,
+            18
+          ],
+          "D": [
+            14,
+            9,
+            13,
+            21,
+            17
+          ],
+          "E": [
+            23,
+            16,
+            12,
+            19,
+            10
+          ]
+        }
+      }
+    },
+    "image_path": "images/table-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "766ee8eb4e755c6a6bd7f78ee86271b14eea986b1899cce77be729c17c33d46f",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "table-02",
+    "family": "Table lookup",
+    "label": "Table lookup",
+    "variant": "Smaller panel",
+    "question": "Read the Friday value in row D of the orange-outlined table.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "14": "14",
+      "17": "17",
+      "19": "19",
+      "24": "24",
+      "21": "21",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "24",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "columns": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "rows": {
+          "A": [
+            12,
+            19,
+            21,
+            8,
+            14
+          ],
+          "B": [
+            9,
+            14,
+            16,
+            22,
+            6
+          ],
+          "C": [
+            20,
+            7,
+            15,
+            11,
+            18
+          ],
+          "D": [
+            14,
+            9,
+            13,
+            21,
+            24
+          ],
+          "E": [
+            23,
+            16,
+            12,
+            19,
+            10
+          ]
+        }
+      }
+    },
+    "image_path": "images/table-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "7c22268b533569bb24b029c95868e61e9ce7974c603606f3f39da8bf0bd2246d",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "circuit-01",
+    "family": "Circuit continuity",
+    "label": "Circuit continuity",
+    "variant": "Larger panel",
+    "question": "Is there a visible break in the gold-colored copper trace in the orange-outlined circuit panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "broken": "broken",
+      "continuous": "continuous",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "broken",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "trace_path": [
+          [
+            65,
+            300
+          ],
+          [
+            155,
+            300
+          ],
+          [
+            155,
+            180
+          ],
+          [
+            370,
+            180
+          ],
+          [
+            370,
+            280
+          ],
+          [
+            650,
+            280
+          ]
+        ],
+        "gap": [
+          274,
+          173,
+          281,
+          188
+        ]
+      }
+    },
+    "image_path": "images/circuit-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "c0ce9c9043c9dc2c5bdc7c0e1ccdf226b283a651a4b439df45ad8d560f5594d3",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "circuit-02",
+    "family": "Circuit continuity",
+    "label": "Circuit continuity",
+    "variant": "Smaller panel",
+    "question": "Is there a visible break in the gold-colored copper trace in the orange-outlined circuit panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "broken": "broken",
+      "continuous": "continuous",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "continuous",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "trace_path": [
+          [
+            65,
+            300
+          ],
+          [
+            155,
+            300
+          ],
+          [
+            155,
+            180
+          ],
+          [
+            370,
+            180
+          ],
+          [
+            370,
+            280
+          ],
+          [
+            650,
+            280
+          ]
+        ],
+        "gap": null
+      }
+    },
+    "image_path": "images/circuit-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "e4a52b6e4eb312a2151e0ae54e1224f74c974deef189c6e28f542ec36fbc5ad9",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "spatial-01",
+    "family": "Spatial relation",
+    "label": "Spatial relation",
+    "variant": "Larger panel",
+    "question": "Where is the black triangle relative to the blue square in the orange-outlined panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "above": "above",
+      "right": "right",
+      "left": "left",
+      "below": "below",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "left",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "triangle_centre": [
+          279,
+          229
+        ],
+        "square_centre": [
+          371,
+          229
+        ]
+      }
+    },
+    "image_path": "images/spatial-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "8e44d840161e028f8f8826ff18810858519c7dc6791395165553a7a990d0c843",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "spatial-02",
+    "family": "Spatial relation",
+    "label": "Spatial relation",
+    "variant": "Smaller panel",
+    "question": "Where is the black triangle relative to the blue square in the orange-outlined panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "left": "left",
+      "below": "below",
+      "right": "right",
+      "above": "above",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "below",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "triangle_centre": [
+          371,
+          321
+        ],
+        "square_centre": [
+          371,
+          229
+        ]
+      }
+    },
+    "image_path": "images/spatial-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "bf0220c6015ab247de3902cbae6a3cfc5f544308b785dc4d632d56f417e1fdda",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "gauge-01",
+    "family": "Analog gauge",
+    "label": "Analog gauge",
+    "variant": "Larger panel",
+    "question": "Which labeled value does the needle point to in the orange-outlined dial?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "80": "80",
+      "40": "40",
+      "60": "60",
+      "50": "50",
+      "30": "30",
+      "70": "70",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "40",
+    "evidence": {
+      "bounds": [
+        150,
+        360,
+        870,
+        780
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "needle_value": 40,
+        "scale": [
+          0,
+          100
+        ]
+      }
+    },
+    "image_path": "images/gauge-01.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "d78c5088fd8d3011385ac8adb5045306fbb27ca8c2300efec64211df080e4f45",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  },
+  {
+    "id": "gauge-02",
+    "family": "Analog gauge",
+    "label": "Analog gauge",
+    "variant": "Smaller panel",
+    "question": "Which labeled value does the needle point to in the orange-outlined dial?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "30": "30",
+      "60": "60",
+      "70": "70",
+      "40": "40",
+      "80": "80",
+      "50": "50",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "70",
+    "evidence": {
+      "bounds": [
+        1180,
+        765,
+        1540,
+        975
+      ],
+      "explanation": "Answer computed from the fixture specification; withheld from every request.",
+      "facts": {
+        "needle_value": 70,
+        "scale": [
+          0,
+          100
+        ]
+      }
+    },
+    "image_path": "images/gauge-02.png",
+    "size": [
+      1800,
+      1200
+    ],
+    "image_sha256": "5a84027601d48eedf9c408d8354c782543af3e545487af621cd262d6fce03a06",
+    "source": "Procedural teaching fixture, not a photograph or measurement."
+  }
+]

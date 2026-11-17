@@ -1,0 +1,1605 @@
+{
+  "summary": [
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "method": "direct",
+      "correct": 12,
+      "total": 16,
+      "mean_http_ms": 856.67,
+      "median_http_ms": 813.95,
+      "mean_calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "method": "zoom",
+      "correct": 12,
+      "total": 16,
+      "mean_http_ms": 3246.42,
+      "median_http_ms": 3189.75,
+      "mean_calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "method": "early_stop",
+      "correct": 11,
+      "total": 16,
+      "mean_http_ms": 1721.53,
+      "median_http_ms": 1665.13,
+      "mean_calls": 2.0625
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "method": "direct",
+      "correct": 12,
+      "total": 16,
+      "mean_http_ms": 1108.07,
+      "median_http_ms": 983.4,
+      "mean_calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "method": "zoom",
+      "correct": 11,
+      "total": 16,
+      "mean_http_ms": 5397.64,
+      "median_http_ms": 4325.64,
+      "mean_calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "method": "early_stop",
+      "correct": 12,
+      "total": 16,
+      "mean_http_ms": 2425.21,
+      "median_http_ms": 2080.86,
+      "mean_calls": 2.1875
+    }
+  ],
+  "rows": [
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "text-01",
+      "family": "Small text",
+      "method": "direct",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1209.88,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "text-02",
+      "family": "Small text",
+      "method": "direct",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 846.48,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "count-01",
+      "family": "Counting",
+      "method": "direct",
+      "truth": "8",
+      "answer": "8",
+      "top": [
+        "8"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 884.43,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "count-02",
+      "family": "Counting",
+      "method": "direct",
+      "truth": "11",
+      "answer": "10",
+      "top": [
+        "10",
+        "12"
+      ],
+      "correct": false,
+      "status": "tie",
+      "elapsed_ms": 957.67,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "method": "direct",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 808.64,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "method": "direct",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 859.05,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "chart-01",
+      "family": "Chart reading",
+      "method": "direct",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 802.62,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "chart-02",
+      "family": "Chart reading",
+      "method": "direct",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 811.41,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "table-01",
+      "family": "Table lookup",
+      "method": "direct",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 803.6,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "table-02",
+      "family": "Table lookup",
+      "method": "direct",
+      "truth": "24",
+      "answer": "14",
+      "top": [
+        "14"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 833.92,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "method": "direct",
+      "truth": "broken",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 789.11,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "method": "direct",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 816.49,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "method": "direct",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 901.07,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "method": "direct",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 808.54,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "method": "direct",
+      "truth": "40",
+      "answer": "30",
+      "top": [
+        "30"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 803.97,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "method": "direct",
+      "truth": "70",
+      "answer": "60",
+      "top": [
+        "60"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 769.85,
+      "calls": 1
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "text-01",
+      "family": "Small text",
+      "method": "zoom",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3937.2,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "text-02",
+      "family": "Small text",
+      "method": "zoom",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3350.39,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "count-01",
+      "family": "Counting",
+      "method": "zoom",
+      "truth": "8",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 3309.21,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "count-02",
+      "family": "Counting",
+      "method": "zoom",
+      "truth": "11",
+      "answer": "11",
+      "top": [
+        "11"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3457.49,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "method": "zoom",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3234.57,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "method": "zoom",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3211.74,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "chart-01",
+      "family": "Chart reading",
+      "method": "zoom",
+      "truth": "37",
+      "answer": "71",
+      "top": [
+        "71"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 3187.6,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "chart-02",
+      "family": "Chart reading",
+      "method": "zoom",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3185.19,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "table-01",
+      "family": "Table lookup",
+      "method": "zoom",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3171.32,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "table-02",
+      "family": "Table lookup",
+      "method": "zoom",
+      "truth": "24",
+      "answer": "24",
+      "top": [
+        "24"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3404.4,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "method": "zoom",
+      "truth": "broken",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 3125.58,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "method": "zoom",
+      "truth": "continuous",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 3116.6,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "method": "zoom",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2937.1,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "method": "zoom",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3001.9,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "method": "zoom",
+      "truth": "40",
+      "answer": "40",
+      "top": [
+        "40"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3191.9,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "method": "zoom",
+      "truth": "70",
+      "answer": "70",
+      "top": [
+        "70"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3120.46,
+      "calls": 4
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "text-01",
+      "family": "Small text",
+      "method": "early_stop",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2029.45,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "text-02",
+      "family": "Small text",
+      "method": "early_stop",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1603.48,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "count-01",
+      "family": "Counting",
+      "method": "early_stop",
+      "truth": "8",
+      "answer": "8",
+      "top": [
+        "8"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1721.44,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "count-02",
+      "family": "Counting",
+      "method": "early_stop",
+      "truth": "11",
+      "answer": "12",
+      "top": [
+        "12"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1565.59,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "method": "early_stop",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1762.9,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "method": "early_stop",
+      "truth": "62",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 1622.76,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "chart-01",
+      "family": "Chart reading",
+      "method": "early_stop",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2435.64,
+      "calls": 3
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "chart-02",
+      "family": "Chart reading",
+      "method": "early_stop",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1593.84,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "table-01",
+      "family": "Table lookup",
+      "method": "early_stop",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1632.92,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "table-02",
+      "family": "Table lookup",
+      "method": "early_stop",
+      "truth": "24",
+      "answer": "14",
+      "top": [
+        "14"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1657.18,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "method": "early_stop",
+      "truth": "broken",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1673.09,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "method": "early_stop",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1523.53,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "method": "early_stop",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1676.5,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "method": "early_stop",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1704.99,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "method": "early_stop",
+      "truth": "40",
+      "answer": "30",
+      "top": [
+        "30"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1697.04,
+      "calls": 2
+    },
+    {
+      "model": "Liquid D1.2",
+      "transport": "OpenRouter",
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "method": "early_stop",
+      "truth": "70",
+      "answer": "60",
+      "top": [
+        "60"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1644.13,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "text-01",
+      "family": "Small text",
+      "method": "direct",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1792.28,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "text-02",
+      "family": "Small text",
+      "method": "direct",
+      "truth": "K193",
+      "answer": "K139",
+      "top": [
+        "K139"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1570.31,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "count-01",
+      "family": "Counting",
+      "method": "direct",
+      "truth": "8",
+      "answer": "10",
+      "top": [
+        "10"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 2411.09,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "count-02",
+      "family": "Counting",
+      "method": "direct",
+      "truth": "11",
+      "answer": "10",
+      "top": [
+        "10"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 808.42,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "method": "direct",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2183.89,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "method": "direct",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 429.15,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "chart-01",
+      "family": "Chart reading",
+      "method": "direct",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 587.56,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "chart-02",
+      "family": "Chart reading",
+      "method": "direct",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 919.07,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "table-01",
+      "family": "Table lookup",
+      "method": "direct",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1110.12,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "table-02",
+      "family": "Table lookup",
+      "method": "direct",
+      "truth": "24",
+      "answer": "24",
+      "top": [
+        "24"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 810.61,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "method": "direct",
+      "truth": "broken",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1047.74,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "method": "direct",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 432.54,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "method": "direct",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1199.02,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "method": "direct",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1081.57,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "method": "direct",
+      "truth": "40",
+      "answer": "40",
+      "top": [
+        "40"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 563.9,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "method": "direct",
+      "truth": "70",
+      "answer": "80",
+      "top": [
+        "80"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 781.88,
+      "calls": 1
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "text-01",
+      "family": "Small text",
+      "method": "zoom",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 4643.27,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "text-02",
+      "family": "Small text",
+      "method": "zoom",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 7844.91,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "count-01",
+      "family": "Counting",
+      "method": "zoom",
+      "truth": "8",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 5060.41,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "count-02",
+      "family": "Counting",
+      "method": "zoom",
+      "truth": "11",
+      "answer": "10",
+      "top": [
+        "10"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 4181.3,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "method": "zoom",
+      "truth": "48",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 3661.14,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "method": "zoom",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 6037.63,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "chart-01",
+      "family": "Chart reading",
+      "method": "zoom",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 4469.97,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "chart-02",
+      "family": "Chart reading",
+      "method": "zoom",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 4516.26,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "table-01",
+      "family": "Table lookup",
+      "method": "zoom",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 4139.14,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "table-02",
+      "family": "Table lookup",
+      "method": "zoom",
+      "truth": "24",
+      "answer": "24",
+      "top": [
+        "24"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3283.59,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "method": "zoom",
+      "truth": "broken",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 3079.81,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "method": "zoom",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3469.22,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "method": "zoom",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3288.34,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "method": "zoom",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 16489.39,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "method": "zoom",
+      "truth": "40",
+      "answer": "40",
+      "top": [
+        "40"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3059.11,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "method": "zoom",
+      "truth": "70",
+      "answer": "50",
+      "top": [
+        "50"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 9138.73,
+      "calls": 4
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "text-01",
+      "family": "Small text",
+      "method": "early_stop",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3511.67,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "text-02",
+      "family": "Small text",
+      "method": "early_stop",
+      "truth": "K193",
+      "answer": "K139",
+      "top": [
+        "K139"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 2986.77,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "count-01",
+      "family": "Counting",
+      "method": "early_stop",
+      "truth": "8",
+      "answer": "10",
+      "top": [
+        "10"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1572.65,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "count-02",
+      "family": "Counting",
+      "method": "early_stop",
+      "truth": "11",
+      "answer": "10",
+      "top": [
+        "10"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 2282.63,
+      "calls": 3
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "method": "early_stop",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 7664.51,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "method": "early_stop",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2895.92,
+      "calls": 3
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "chart-01",
+      "family": "Chart reading",
+      "method": "early_stop",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2478.98,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "chart-02",
+      "family": "Chart reading",
+      "method": "early_stop",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2354.82,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "table-01",
+      "family": "Table lookup",
+      "method": "early_stop",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1597.0,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "table-02",
+      "family": "Table lookup",
+      "method": "early_stop",
+      "truth": "24",
+      "answer": "24",
+      "top": [
+        "24"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2304.87,
+      "calls": 3
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "method": "early_stop",
+      "truth": "broken",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1763.36,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "method": "early_stop",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1479.26,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "method": "early_stop",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1589.66,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "method": "early_stop",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1879.09,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "method": "early_stop",
+      "truth": "40",
+      "answer": "40",
+      "top": [
+        "40"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1236.02,
+      "calls": 2
+    },
+    {
+      "model": "Gemini Decision 1",
+      "transport": "Google native API",
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "method": "early_stop",
+      "truth": "70",
+      "answer": "80",
+      "top": [
+        "80"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1206.16,
+      "calls": 2
+    }
+  ],
+  "gemini_calls": 115,
+  "gemini_input_tokens": 166864
+}

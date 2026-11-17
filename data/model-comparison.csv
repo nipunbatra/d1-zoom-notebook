@@ -1,0 +1,97 @@
+model,transport,id,family,method,truth,answer,top,correct,status,elapsed_ms,calls
+Liquid D1.2,OpenRouter,text-01,Small text,direct,B742,B742,['B742'],True,correct,1209.88,1
+Liquid D1.2,OpenRouter,text-02,Small text,direct,K193,K193,['K193'],True,correct,846.48,1
+Liquid D1.2,OpenRouter,count-01,Counting,direct,8,8,['8'],True,correct,884.43,1
+Liquid D1.2,OpenRouter,count-02,Counting,direct,11,10,"['10', '12']",False,tie,957.67,1
+Liquid D1.2,OpenRouter,thermal-01,Thermal colorbar,direct,48,48,['48'],True,correct,808.64,1
+Liquid D1.2,OpenRouter,thermal-02,Thermal colorbar,direct,62,62,['62'],True,correct,859.05,1
+Liquid D1.2,OpenRouter,chart-01,Chart reading,direct,37,37,['37'],True,correct,802.62,1
+Liquid D1.2,OpenRouter,chart-02,Chart reading,direct,62,62,['62'],True,correct,811.41,1
+Liquid D1.2,OpenRouter,table-01,Table lookup,direct,17,17,['17'],True,correct,803.6,1
+Liquid D1.2,OpenRouter,table-02,Table lookup,direct,24,14,['14'],False,wrong,833.92,1
+Liquid D1.2,OpenRouter,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,789.11,1
+Liquid D1.2,OpenRouter,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,816.49,1
+Liquid D1.2,OpenRouter,spatial-01,Spatial relation,direct,left,left,['left'],True,correct,901.07,1
+Liquid D1.2,OpenRouter,spatial-02,Spatial relation,direct,below,below,['below'],True,correct,808.54,1
+Liquid D1.2,OpenRouter,gauge-01,Analog gauge,direct,40,30,['30'],False,wrong,803.97,1
+Liquid D1.2,OpenRouter,gauge-02,Analog gauge,direct,70,60,['60'],False,wrong,769.85,1
+Liquid D1.2,OpenRouter,text-01,Small text,zoom,B742,B742,['B742'],True,correct,3937.2,4
+Liquid D1.2,OpenRouter,text-02,Small text,zoom,K193,K193,['K193'],True,correct,3350.39,4
+Liquid D1.2,OpenRouter,count-01,Counting,zoom,8,uncertain,['uncertain'],False,abstained,3309.21,4
+Liquid D1.2,OpenRouter,count-02,Counting,zoom,11,11,['11'],True,correct,3457.49,4
+Liquid D1.2,OpenRouter,thermal-01,Thermal colorbar,zoom,48,48,['48'],True,correct,3234.57,4
+Liquid D1.2,OpenRouter,thermal-02,Thermal colorbar,zoom,62,62,['62'],True,correct,3211.74,4
+Liquid D1.2,OpenRouter,chart-01,Chart reading,zoom,37,71,['71'],False,wrong,3187.6,4
+Liquid D1.2,OpenRouter,chart-02,Chart reading,zoom,62,62,['62'],True,correct,3185.19,4
+Liquid D1.2,OpenRouter,table-01,Table lookup,zoom,17,17,['17'],True,correct,3171.32,4
+Liquid D1.2,OpenRouter,table-02,Table lookup,zoom,24,24,['24'],True,correct,3404.4,4
+Liquid D1.2,OpenRouter,circuit-01,Circuit continuity,zoom,broken,uncertain,['uncertain'],False,abstained,3125.58,4
+Liquid D1.2,OpenRouter,circuit-02,Circuit continuity,zoom,continuous,broken,['broken'],False,wrong,3116.6,4
+Liquid D1.2,OpenRouter,spatial-01,Spatial relation,zoom,left,left,['left'],True,correct,2937.1,4
+Liquid D1.2,OpenRouter,spatial-02,Spatial relation,zoom,below,below,['below'],True,correct,3001.9,4
+Liquid D1.2,OpenRouter,gauge-01,Analog gauge,zoom,40,40,['40'],True,correct,3191.9,4
+Liquid D1.2,OpenRouter,gauge-02,Analog gauge,zoom,70,70,['70'],True,correct,3120.46,4
+Liquid D1.2,OpenRouter,text-01,Small text,early_stop,B742,B742,['B742'],True,correct,2029.45,2
+Liquid D1.2,OpenRouter,text-02,Small text,early_stop,K193,K193,['K193'],True,correct,1603.48,2
+Liquid D1.2,OpenRouter,count-01,Counting,early_stop,8,8,['8'],True,correct,1721.44,2
+Liquid D1.2,OpenRouter,count-02,Counting,early_stop,11,12,['12'],False,wrong,1565.59,2
+Liquid D1.2,OpenRouter,thermal-01,Thermal colorbar,early_stop,48,48,['48'],True,correct,1762.9,2
+Liquid D1.2,OpenRouter,thermal-02,Thermal colorbar,early_stop,62,uncertain,['uncertain'],False,abstained,1622.76,2
+Liquid D1.2,OpenRouter,chart-01,Chart reading,early_stop,37,37,['37'],True,correct,2435.64,3
+Liquid D1.2,OpenRouter,chart-02,Chart reading,early_stop,62,62,['62'],True,correct,1593.84,2
+Liquid D1.2,OpenRouter,table-01,Table lookup,early_stop,17,17,['17'],True,correct,1632.92,2
+Liquid D1.2,OpenRouter,table-02,Table lookup,early_stop,24,14,['14'],False,wrong,1657.18,2
+Liquid D1.2,OpenRouter,circuit-01,Circuit continuity,early_stop,broken,broken,['broken'],True,correct,1673.09,2
+Liquid D1.2,OpenRouter,circuit-02,Circuit continuity,early_stop,continuous,continuous,['continuous'],True,correct,1523.53,2
+Liquid D1.2,OpenRouter,spatial-01,Spatial relation,early_stop,left,left,['left'],True,correct,1676.5,2
+Liquid D1.2,OpenRouter,spatial-02,Spatial relation,early_stop,below,below,['below'],True,correct,1704.99,2
+Liquid D1.2,OpenRouter,gauge-01,Analog gauge,early_stop,40,30,['30'],False,wrong,1697.04,2
+Liquid D1.2,OpenRouter,gauge-02,Analog gauge,early_stop,70,60,['60'],False,wrong,1644.13,2
+Gemini Decision 1,Google native API,text-01,Small text,direct,B742,B742,['B742'],True,correct,1792.28,1
+Gemini Decision 1,Google native API,text-02,Small text,direct,K193,K139,['K139'],False,wrong,1570.31,1
+Gemini Decision 1,Google native API,count-01,Counting,direct,8,10,['10'],False,wrong,2411.09,1
+Gemini Decision 1,Google native API,count-02,Counting,direct,11,10,['10'],False,wrong,808.42,1
+Gemini Decision 1,Google native API,thermal-01,Thermal colorbar,direct,48,48,['48'],True,correct,2183.89,1
+Gemini Decision 1,Google native API,thermal-02,Thermal colorbar,direct,62,62,['62'],True,correct,429.15,1
+Gemini Decision 1,Google native API,chart-01,Chart reading,direct,37,37,['37'],True,correct,587.56,1
+Gemini Decision 1,Google native API,chart-02,Chart reading,direct,62,62,['62'],True,correct,919.07,1
+Gemini Decision 1,Google native API,table-01,Table lookup,direct,17,17,['17'],True,correct,1110.12,1
+Gemini Decision 1,Google native API,table-02,Table lookup,direct,24,24,['24'],True,correct,810.61,1
+Gemini Decision 1,Google native API,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,1047.74,1
+Gemini Decision 1,Google native API,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,432.54,1
+Gemini Decision 1,Google native API,spatial-01,Spatial relation,direct,left,left,['left'],True,correct,1199.02,1
+Gemini Decision 1,Google native API,spatial-02,Spatial relation,direct,below,below,['below'],True,correct,1081.57,1
+Gemini Decision 1,Google native API,gauge-01,Analog gauge,direct,40,40,['40'],True,correct,563.9,1
+Gemini Decision 1,Google native API,gauge-02,Analog gauge,direct,70,80,['80'],False,wrong,781.88,1
+Gemini Decision 1,Google native API,text-01,Small text,zoom,B742,B742,['B742'],True,correct,4643.27,4
+Gemini Decision 1,Google native API,text-02,Small text,zoom,K193,K193,['K193'],True,correct,7844.91,4
+Gemini Decision 1,Google native API,count-01,Counting,zoom,8,uncertain,['uncertain'],False,abstained,5060.41,4
+Gemini Decision 1,Google native API,count-02,Counting,zoom,11,10,['10'],False,wrong,4181.3,4
+Gemini Decision 1,Google native API,thermal-01,Thermal colorbar,zoom,48,uncertain,['uncertain'],False,abstained,3661.14,4
+Gemini Decision 1,Google native API,thermal-02,Thermal colorbar,zoom,62,62,['62'],True,correct,6037.63,4
+Gemini Decision 1,Google native API,chart-01,Chart reading,zoom,37,37,['37'],True,correct,4469.97,4
+Gemini Decision 1,Google native API,chart-02,Chart reading,zoom,62,62,['62'],True,correct,4516.26,4
+Gemini Decision 1,Google native API,table-01,Table lookup,zoom,17,17,['17'],True,correct,4139.14,4
+Gemini Decision 1,Google native API,table-02,Table lookup,zoom,24,24,['24'],True,correct,3283.59,4
+Gemini Decision 1,Google native API,circuit-01,Circuit continuity,zoom,broken,continuous,['continuous'],False,wrong,3079.81,4
+Gemini Decision 1,Google native API,circuit-02,Circuit continuity,zoom,continuous,continuous,['continuous'],True,correct,3469.22,4
+Gemini Decision 1,Google native API,spatial-01,Spatial relation,zoom,left,left,['left'],True,correct,3288.34,4
+Gemini Decision 1,Google native API,spatial-02,Spatial relation,zoom,below,below,['below'],True,correct,16489.39,4
+Gemini Decision 1,Google native API,gauge-01,Analog gauge,zoom,40,40,['40'],True,correct,3059.11,4
+Gemini Decision 1,Google native API,gauge-02,Analog gauge,zoom,70,50,['50'],False,wrong,9138.73,4
+Gemini Decision 1,Google native API,text-01,Small text,early_stop,B742,B742,['B742'],True,correct,3511.67,2
+Gemini Decision 1,Google native API,text-02,Small text,early_stop,K193,K139,['K139'],False,wrong,2986.77,2
+Gemini Decision 1,Google native API,count-01,Counting,early_stop,8,10,['10'],False,wrong,1572.65,2
+Gemini Decision 1,Google native API,count-02,Counting,early_stop,11,10,['10'],False,wrong,2282.63,3
+Gemini Decision 1,Google native API,thermal-01,Thermal colorbar,early_stop,48,48,['48'],True,correct,7664.51,2
+Gemini Decision 1,Google native API,thermal-02,Thermal colorbar,early_stop,62,62,['62'],True,correct,2895.92,3
+Gemini Decision 1,Google native API,chart-01,Chart reading,early_stop,37,37,['37'],True,correct,2478.98,2
+Gemini Decision 1,Google native API,chart-02,Chart reading,early_stop,62,62,['62'],True,correct,2354.82,2
+Gemini Decision 1,Google native API,table-01,Table lookup,early_stop,17,17,['17'],True,correct,1597.0,2
+Gemini Decision 1,Google native API,table-02,Table lookup,early_stop,24,24,['24'],True,correct,2304.87,3
+Gemini Decision 1,Google native API,circuit-01,Circuit continuity,early_stop,broken,broken,['broken'],True,correct,1763.36,2
+Gemini Decision 1,Google native API,circuit-02,Circuit continuity,early_stop,continuous,continuous,['continuous'],True,correct,1479.26,2
+Gemini Decision 1,Google native API,spatial-01,Spatial relation,early_stop,left,left,['left'],True,correct,1589.66,2
+Gemini Decision 1,Google native API,spatial-02,Spatial relation,early_stop,below,below,['below'],True,correct,1879.09,2
+Gemini Decision 1,Google native API,gauge-01,Analog gauge,early_stop,40,40,['40'],True,correct,1236.02,2
+Gemini Decision 1,Google native API,gauge-02,Analog gauge,early_stop,70,80,['80'],False,wrong,1206.16,2

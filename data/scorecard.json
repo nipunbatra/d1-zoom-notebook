@@ -1,0 +1,753 @@
+{
+  "summary": {
+    "direct": {
+      "correct": 12,
+      "total": 16,
+      "calls": 16,
+      "mean_http_ms": 856.67,
+      "median_http_ms": 813.95,
+      "total_http_ms": 13706.73
+    },
+    "zoom": {
+      "correct": 12,
+      "total": 16,
+      "calls": 64,
+      "mean_http_ms": 3246.42,
+      "median_http_ms": 3189.75,
+      "total_http_ms": 51942.65
+    },
+    "early_stop": {
+      "correct": 11,
+      "total": 16,
+      "calls": 33,
+      "mean_http_ms": 1721.53,
+      "median_http_ms": 1665.13,
+      "total_http_ms": 27544.48
+    }
+  },
+  "rows": [
+    {
+      "id": "text-01",
+      "family": "Small text",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1209.88,
+      "calls": 1
+    },
+    {
+      "id": "text-01",
+      "family": "Small text",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2029.45,
+      "calls": 2
+    },
+    {
+      "id": "text-01",
+      "family": "Small text",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "B742",
+      "answer": "B742",
+      "top": [
+        "B742"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3937.2,
+      "calls": 4
+    },
+    {
+      "id": "text-02",
+      "family": "Small text",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 846.48,
+      "calls": 1
+    },
+    {
+      "id": "text-02",
+      "family": "Small text",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1603.48,
+      "calls": 2
+    },
+    {
+      "id": "text-02",
+      "family": "Small text",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "K193",
+      "answer": "K193",
+      "top": [
+        "K193"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3350.39,
+      "calls": 4
+    },
+    {
+      "id": "count-01",
+      "family": "Counting",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "8",
+      "answer": "8",
+      "top": [
+        "8"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 884.43,
+      "calls": 1
+    },
+    {
+      "id": "count-01",
+      "family": "Counting",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "8",
+      "answer": "8",
+      "top": [
+        "8"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1721.44,
+      "calls": 2
+    },
+    {
+      "id": "count-01",
+      "family": "Counting",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "8",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 3309.21,
+      "calls": 4
+    },
+    {
+      "id": "count-02",
+      "family": "Counting",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "11",
+      "answer": "10",
+      "top": [
+        "10",
+        "12"
+      ],
+      "correct": false,
+      "status": "tie",
+      "elapsed_ms": 957.67,
+      "calls": 1
+    },
+    {
+      "id": "count-02",
+      "family": "Counting",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "11",
+      "answer": "12",
+      "top": [
+        "12"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1565.59,
+      "calls": 2
+    },
+    {
+      "id": "count-02",
+      "family": "Counting",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "11",
+      "answer": "11",
+      "top": [
+        "11"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3457.49,
+      "calls": 4
+    },
+    {
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 808.64,
+      "calls": 1
+    },
+    {
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1762.9,
+      "calls": 2
+    },
+    {
+      "id": "thermal-01",
+      "family": "Thermal colorbar",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "48",
+      "answer": "48",
+      "top": [
+        "48"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3234.57,
+      "calls": 4
+    },
+    {
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 859.05,
+      "calls": 1
+    },
+    {
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "62",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 1622.76,
+      "calls": 2
+    },
+    {
+      "id": "thermal-02",
+      "family": "Thermal colorbar",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3211.74,
+      "calls": 4
+    },
+    {
+      "id": "chart-01",
+      "family": "Chart reading",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 802.62,
+      "calls": 1
+    },
+    {
+      "id": "chart-01",
+      "family": "Chart reading",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "37",
+      "answer": "37",
+      "top": [
+        "37"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2435.64,
+      "calls": 3
+    },
+    {
+      "id": "chart-01",
+      "family": "Chart reading",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "37",
+      "answer": "71",
+      "top": [
+        "71"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 3187.6,
+      "calls": 4
+    },
+    {
+      "id": "chart-02",
+      "family": "Chart reading",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 811.41,
+      "calls": 1
+    },
+    {
+      "id": "chart-02",
+      "family": "Chart reading",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1593.84,
+      "calls": 2
+    },
+    {
+      "id": "chart-02",
+      "family": "Chart reading",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "62",
+      "answer": "62",
+      "top": [
+        "62"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3185.19,
+      "calls": 4
+    },
+    {
+      "id": "table-01",
+      "family": "Table lookup",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 803.6,
+      "calls": 1
+    },
+    {
+      "id": "table-01",
+      "family": "Table lookup",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1632.92,
+      "calls": 2
+    },
+    {
+      "id": "table-01",
+      "family": "Table lookup",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "17",
+      "answer": "17",
+      "top": [
+        "17"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3171.32,
+      "calls": 4
+    },
+    {
+      "id": "table-02",
+      "family": "Table lookup",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "24",
+      "answer": "14",
+      "top": [
+        "14"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 833.92,
+      "calls": 1
+    },
+    {
+      "id": "table-02",
+      "family": "Table lookup",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "24",
+      "answer": "14",
+      "top": [
+        "14"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1657.18,
+      "calls": 2
+    },
+    {
+      "id": "table-02",
+      "family": "Table lookup",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "24",
+      "answer": "24",
+      "top": [
+        "24"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3404.4,
+      "calls": 4
+    },
+    {
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "broken",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 789.11,
+      "calls": 1
+    },
+    {
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "broken",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1673.09,
+      "calls": 2
+    },
+    {
+      "id": "circuit-01",
+      "family": "Circuit continuity",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "broken",
+      "answer": "uncertain",
+      "top": [
+        "uncertain"
+      ],
+      "correct": false,
+      "status": "abstained",
+      "elapsed_ms": 3125.58,
+      "calls": 4
+    },
+    {
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 816.49,
+      "calls": 1
+    },
+    {
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "continuous",
+      "answer": "continuous",
+      "top": [
+        "continuous"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1523.53,
+      "calls": 2
+    },
+    {
+      "id": "circuit-02",
+      "family": "Circuit continuity",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "continuous",
+      "answer": "broken",
+      "top": [
+        "broken"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 3116.6,
+      "calls": 4
+    },
+    {
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 901.07,
+      "calls": 1
+    },
+    {
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1676.5,
+      "calls": 2
+    },
+    {
+      "id": "spatial-01",
+      "family": "Spatial relation",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "left",
+      "answer": "left",
+      "top": [
+        "left"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 2937.1,
+      "calls": 4
+    },
+    {
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 808.54,
+      "calls": 1
+    },
+    {
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 1704.99,
+      "calls": 2
+    },
+    {
+      "id": "spatial-02",
+      "family": "Spatial relation",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "below",
+      "answer": "below",
+      "top": [
+        "below"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3001.9,
+      "calls": 4
+    },
+    {
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "variant": "Larger panel",
+      "method": "direct",
+      "truth": "40",
+      "answer": "30",
+      "top": [
+        "30"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 803.97,
+      "calls": 1
+    },
+    {
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "variant": "Larger panel",
+      "method": "early_stop",
+      "truth": "40",
+      "answer": "30",
+      "top": [
+        "30"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1697.04,
+      "calls": 2
+    },
+    {
+      "id": "gauge-01",
+      "family": "Analog gauge",
+      "variant": "Larger panel",
+      "method": "zoom",
+      "truth": "40",
+      "answer": "40",
+      "top": [
+        "40"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3191.9,
+      "calls": 4
+    },
+    {
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "variant": "Smaller panel",
+      "method": "direct",
+      "truth": "70",
+      "answer": "60",
+      "top": [
+        "60"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 769.85,
+      "calls": 1
+    },
+    {
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "variant": "Smaller panel",
+      "method": "early_stop",
+      "truth": "70",
+      "answer": "60",
+      "top": [
+        "60"
+      ],
+      "correct": false,
+      "status": "wrong",
+      "elapsed_ms": 1644.13,
+      "calls": 2
+    },
+    {
+      "id": "gauge-02",
+      "family": "Analog gauge",
+      "variant": "Smaller panel",
+      "method": "zoom",
+      "truth": "70",
+      "answer": "70",
+      "top": [
+        "70"
+      ],
+      "correct": true,
+      "status": "correct",
+      "elapsed_ms": 3120.46,
+      "calls": 4
+    }
+  ],
+  "unique_calls": 113,
+  "reported_cost_usd": 0.00117766
+}

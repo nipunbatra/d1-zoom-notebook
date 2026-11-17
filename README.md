@@ -1,53 +1,69 @@
-# D1 visual search
+# Look closer: a visual mini-benchmark
 
-[Open the viewer](https://nipunbatra.github.io/d1-zoom-notebook/) · [Download the notebook](https://nipunbatra.github.io/d1-zoom-notebook/d1_crop_walkthrough.ipynb)
+[Open the interactive walkthrough](https://nipunbatra.github.io/d1-zoom-notebook/) · [Download the notebook](https://nipunbatra.github.io/d1-zoom-notebook/d1_crop_walkthrough.ipynb)
 
-Full image and current crop side by side. Numbered crop windows stay on the original. Prompt, answer, and HTTP time are visible together. Everything is precomputed; no key or typing is needed. Play, step, pan, or zoom. Code and raw probabilities expand on demand.
+**16 controlled examples, eight task families.** Choose a model and example; compare its final answers; then play through every prompt, routing decision, crop and response. The full original stays beside the exact submitted image, with the crop path marked. Prompts, answer types, probabilities and HTTP times are visible. Everything is precomputed and works offline; no typing or API key is needed.
 
-## Examples and correctness
+Tasks: small text, cross-slot screw counting, thermal colorbar reading, chart reading, table lookup, circuit continuity, spatial relations and analog gauges. Every image is procedurally generated. Thermal colors and units are illustrative display labels, not physical measurements. The two examples per family differ in content and panel size; they are not a paired size-only ablation.
 
-| Example | What the recorded calls show |
-|---|---|
-| Small text, 512 px input cap | Full-image reading is tied between B742 and B174 (23.5% each). Crop 2 returns the known code B742 at 99.7%. Some location decisions still miss the outline centre; these are flagged. |
-| Cat, control | The nose is already visible without zoom. The final selected cell is above it. A failure/control, not a successful zoom example. |
-| Satellite, drift | Later routing moves left of the island; the next crop cuts off its right side. Both are marked. |
-| Material, context loss | centre → centre → not_visible. The deeper crop stops the search. |
-| Circuit board, miss | not_visible despite independent defect annotations. No predicted region is invented. |
+## What the recorded runs show
 
-The small-text test asks **the same reading question at every level** and caps each submitted image at 512 pixels on its longest edge. The known code and orange-outline coordinates come from the generated fixture; they are not supplied as answer metadata to the model. Candidate answers are supplied in the choice question. The initial returned choice was B742, but it tied exactly with B174, so the UI shows the tie. This is uncertainty reduction in one controlled example, not an accuracy benchmark. A separate, uncapped full-resolution call already read B742 correctly at 97.7%; zoom was unnecessary under that condition.
+| Model / API | Method | Correct | Mean HTTP time | Mean calls |
+|---|---|---:|---:|---:|
+| D1.2 / OpenRouter | Direct | 12/16 | 0.86 s | 1.00 |
+| D1.2 / OpenRouter | Up to 3 crops | 12/16 | 3.25 s | 4.00 |
+| D1.2 / OpenRouter | Model decides when to stop | 11/16 | 1.72 s | 2.06 |
+| Gemini Decision 1 / Google native | Direct | 12/16 | 1.11 s | 1.00 |
+| Gemini Decision 1 / Google native | Up to 3 crops | 11/16 | 5.40 s | 4.00 |
+| Gemini Decision 1 / Google native | Model decides when to stop | 12/16 | 2.43 s | 2.19 |
 
-Cat and satellite errors are visual-review findings, not scored against invented ground-truth boxes. The fixture's answer and centre-in-cell checks use exact generated labels. Material and PCB gold boxes are independent dataset annotations, withheld from inference. Purple boxes are grid-derived regions, not native detector boxes or object outlines.
+For D1.2, cropping fixes four direct errors: the smaller counting and table tasks, and both gauges. It also introduces four errors: the larger counting and chart tasks, and both circuit tasks. **There is no overall accuracy improvement in this set.** Crop windows can remove essential context. Spatial tasks and the text examples are useful controls where extra calls are unnecessary.
 
-Questions worth testing with zoom are detail-dependent: small text, tiny component attributes, or a local count **under a specified image-resolution budget**. Recognizing a large visible object is a weak zoom demonstration. A higher model probability alone does not establish an accuracy improvement. Cropping can discard context or part of the target.
+The 113 D1 requests used `liquid/d1.2-20261116` through OpenRouter on 17 November 2026. Their total API-reported cost was $0.001178. Each response is retained; none was retried to obtain a preferred answer. Times are single HTTP durations including network/provider delay, not model-only latency. The two methods have unequal compute budgets, intentionally reported.
 
-## Crop rule
+Gemini uses the existing `GEMINI_API_KEY` through the native `POST /v1beta/decisions` endpoint. Its 115 real requests use the same fixtures, final questions, choice sets and crop policies. The API returns no dated model build identifier or cost, so the requested `gemini-decision-1` alias and full native responses are preserved. Its results are not OpenRouter responses or chat-completion approximations. [Cross-model scorecard](data/model-comparison.csv).
 
-A location call chooses a cell in a 3 × 3 grid, or `not_visible`. Pad the selected cell by half a cell on every side, clip to the current image, then crop the original pixels. Repeat for at most four location calls, stopping at `not_visible` or before a proposed crop smaller than 32 pixels. No upsampling. The cat, satellite, and reading examples each include three actual crops. Original-view coordinates are preserved throughout. The right panel uses the exact submitted JPEG, including downsampling in the reading test; source-crop and submitted-image dimensions are displayed separately.
+The APIs use different transports and may preprocess images differently internally. Submitted JPEGs follow the same 512 px cap. These times include transport/network variation; Gemini had an 11.76 s routing call, retained in the results. They are not pure model-speed measurements. Both models score 12/16 directly; neither shows an overall gain from the fixed crop policy.
 
-Manual pan/zoom affects only the right-hand view. The left stays fixed. **Result** shows the last model call beside the final overlays; it does not imply an extra request. The viewer combines each crop transition with its ensuing model call; the notebook also retains separate crop images.
+The initial D1 controller chose `answer_now` on 15/16 full images, including incorrect cases. We then changed to a fixed three-crop budget on the same fixtures. **The early-stop pilot remains selectable in the viewer.** Direct requests were unchanged and their original responses were reused. This is exploratory protocol development, not held-out evaluation. Repeated identical full-image answer requests in the pilot sometimes differ; those changes are not crop effects.
 
-## Run or edit
+## Prompts and comparison
 
-Open `d1_crop_walkthrough.ipynb` in Jupyter and run all cells. Images, recordings, and the viewer are embedded. There are 10 code cells; the worked Python example is material inspection, and the final gallery contains all five examples. Pillow is installed by setup if missing; otherwise replay is offline. No helper files or project checkout are needed. Trust or execute the notebook to enable its interactive output.
+The shared instructions are displayed in full. D1's Decisions API uses `state`; Gemini uses `input`. Both requests use typed `questions`, rather than a chat-role system field. The shared policy serves the system-prompt function by being prepended to each question's `instructions`. Exact requests can be downloaded, and raw responses expand in place.
 
-Optional `LIVE=True` reruns only the worked material example, making up to five billed OpenRouter requests using an environment key or a hidden prompt. Other gallery examples remain recorded. Modified replay inputs are rejected instead of silently reusing old answers.
+Both methods use the same final question, answer options, model and maximum 512 px image edge. **Answers are closed-choice**, including an `uncertain` option; this is not free-form OCR or arbitrary-number extraction. Routing calls contain no final answer question. Their choices select a 3 × 3 grid cell or `not_visible`. Python pads the selected cell by half a cell on each side, clips to the current view and crops the original pixels. Each crop is separately shown as a deterministic operation. A final request answers the original task.
 
-The standalone `index.html` works offline. To edit the interface, change `src/viewer.html`, then run:
+The fixed policy makes at most three location calls and three crops. It stops early at `not_visible`. The pilot additionally offers `answer_now`. Neither policy implements APERTURE or learns an optimal crop scale. Green boxes are crop windows, not native detector boxes. Gold reference regions and known answers are evaluation metadata, excluded from requests. Reference-region retention is geometric coverage, not an accuracy score.
+
+Correctness requires a unique highest-probability option matching the known answer and returned choice. Ties and abstentions are unresolved and count as not correct. Labels come from the generated fixture specification; counting checks the object list, charts/tables check their source values, and circuit/gauge/spatial labels check the generating geometry. The fixtures were also visually inspected before inference. See the [full scorecard](data/scorecard.csv), [recordings](recordings/mini-benchmark-v2.json), and [validation report](VALIDATION.md).
+
+## Notebook and source
+
+Open `d1_crop_walkthrough.ipynb` in Jupyter and run all **nine code cells**. It includes the images, recordings, crop functions and interactive viewer. The worked counting example shows each actual input and complete prompt, including shared instructions. No checkout or helper file is needed. Pillow is installed if absent; replay otherwise needs no network. Trust or run the notebook to enable interactive HTML output.
+
+Set `MODEL_KEY` to `"d1"` or `"gemini"` for the worked notebook example. Both paths are verified offline. `LIVE=True` reruns only that example, with up to five billed calls, using `OPENROUTER_API_KEY` for D1 or `GEMINI_API_KEY` / `GOOGLE_API_KEY` for Gemini, or a hidden prompt. Fresh results and a download are shown separately; the gallery and aggregate scores always preserve the original recordings. Replay refuses changed prompts or pixels rather than attaching old answers to new inputs.
+
+The repository uses Python, Pillow and vanilla HTML/CSS/JS. No frontend dependencies or build service are required.
 
 ```sh
-python3 scripts/build_site.py
+python3 -m pip install -r requirements.txt
+python3 scripts/build_site.py          # builds HTML and an unexecuted notebook
+python3 scripts/execute_notebook.py    # D1 replay with network blocked
+python3 scripts/execute_notebook.py --model gemini  # Gemini replay in work/
+python3 scripts/validate.py            # checks all inputs, paths and scores
+python3 -m http.server 8788            # preview the repository root
 ```
 
-This uses only the Python standard library, rebuilds the page from the executed notebook, and syncs the viewer into the notebook's embedded assets and output. `scripts/validate.py` checks the embedded geometry and recorded input images with Pillow. GitHub Pages serves the repository root; no backend or external JavaScript is used.
+Edit `src/benchmark.html` for the viewer. `scripts/benchmark_core.py` defines the shared prompts, request schema and crop rule. `scripts/make_benchmark.py` creates all 16 images and their labels; Pillow 13.0.0 is pinned for fixture reproduction. `scripts/record_benchmark.py` (D1) and `scripts/record_gemini.py` (Google native) checkpoint each response and resumes without replacing it. Inference needs an existing environment key; the browser never receives credentials. Changing an existing fixture or protocol causes a recording-resume mismatch instead of silently mixing experiments.
 
-[Validation report](VALIDATION.md) · [native-resolution reading trace](recordings/reading-native.json) · [512 px reading trace](recordings/reading-512px.json)
+The earlier cat/satellite/material gallery is preserved in [revision 1885a2f](https://github.com/nipunbatra/d1-zoom-notebook/tree/1885a2f). Its cat localisation was a failure, not ground truth; the new scored suite uses explicit generated labels.
 
-## Sources
+## API references
 
-- All inference responses: actual `liquid/d1.2-20261116` through OpenRouter, 17 November 2026. New continuations were recorded once without retries or replacing misses. Times are HTTP durations, including network/provider behavior.
-- Small-text register: generated teaching fixture, fixed seed 29; code B742, Menlo 12 px, original 2000 × 1400. The full-resolution and 512 px experiments are distinct conditions. An analogous portable fixture generator is included in `scripts/make_fixture.py`; the exact recorded image is embedded in the notebook.
-- [Chelsea / scikit-image](https://scikit-image.org/docs/0.26.x/api/skimage.data.html#skimage.data.chelsea): Stefan van der Walt, CC0; 451 × 300 JPEG derivative.
-- [Dubai / NASA Earth Observatory](https://science.nasa.gov/earth/earth-observatory/urbanization-of-dubai-united-arab-emirates-7153/): Jesse Allen, data provided by Laura Rocchio, Landsat Project Science Office. Panels are 2006, 1990, and 1973. The complete 540 × 1060 figure was resized to 522 × 1024 before inference. [NASA image-use guidance](https://www.nasa.gov/nasa-brand-center/images-and-media/) permits educational reuse with credit.
-- Material and PCB: `chewinggum/03.jpg`, `pcb4/01.jpg`, and healthy references from [Liquid's playground](https://d1.liquid.ai/#/inspect), with boxes from its [manifest](https://d1.liquid.ai/demos/data/inspection/index.json). Images correspond to Amazon Science [VisA](https://registry.opendata.aws/visa/), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): Yang Zou, Jongheon Jeong, Latha Pemula, Dongqing Zhang, and Onkar Dabeer. Crops and overlays are added for this lesson.
+- [Google Decisions API documentation](https://aistudio.google.com/docs/decisions-api) and [official announcement](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
 
-This uses a fixed crop policy. Learned or optimal scale selection, including the proposed APERTURE extension, remains untested.
+- [OpenRouter Decisions request schema](https://openrouter.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-request)
+- [OpenRouter's Decisions reference](https://github.com/OpenRouterTeam/skills/blob/main/skills/openrouter-decisions/references/decisions-api.md)
+- [Liquid D1.2 model](https://openrouter.ai/liquid/d1.2) and [Liquid's capability announcement](https://www.liquid.ai/blog/d1-2)
+
+Only the choice interface actually verified through OpenRouter is used here. Liquid's newer native extraction/box capabilities are not implied by the display overlays.

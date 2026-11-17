@@ -1,0 +1,49 @@
+id,family,variant,method,truth,answer,top,correct,status,elapsed_ms,calls
+text-01,Small text,Larger panel,direct,B742,B742,['B742'],True,correct,1209.88,1
+text-01,Small text,Larger panel,early_stop,B742,B742,['B742'],True,correct,2029.45,2
+text-01,Small text,Larger panel,zoom,B742,B742,['B742'],True,correct,3937.2,4
+text-02,Small text,Smaller panel,direct,K193,K193,['K193'],True,correct,846.48,1
+text-02,Small text,Smaller panel,early_stop,K193,K193,['K193'],True,correct,1603.48,2
+text-02,Small text,Smaller panel,zoom,K193,K193,['K193'],True,correct,3350.39,4
+count-01,Counting,Larger panel,direct,8,8,['8'],True,correct,884.43,1
+count-01,Counting,Larger panel,early_stop,8,8,['8'],True,correct,1721.44,2
+count-01,Counting,Larger panel,zoom,8,uncertain,['uncertain'],False,abstained,3309.21,4
+count-02,Counting,Smaller panel,direct,11,10,"['10', '12']",False,tie,957.67,1
+count-02,Counting,Smaller panel,early_stop,11,12,['12'],False,wrong,1565.59,2
+count-02,Counting,Smaller panel,zoom,11,11,['11'],True,correct,3457.49,4
+thermal-01,Thermal colorbar,Larger panel,direct,48,48,['48'],True,correct,808.64,1
+thermal-01,Thermal colorbar,Larger panel,early_stop,48,48,['48'],True,correct,1762.9,2
+thermal-01,Thermal colorbar,Larger panel,zoom,48,48,['48'],True,correct,3234.57,4
+thermal-02,Thermal colorbar,Smaller panel,direct,62,62,['62'],True,correct,859.05,1
+thermal-02,Thermal colorbar,Smaller panel,early_stop,62,uncertain,['uncertain'],False,abstained,1622.76,2
+thermal-02,Thermal colorbar,Smaller panel,zoom,62,62,['62'],True,correct,3211.74,4
+chart-01,Chart reading,Larger panel,direct,37,37,['37'],True,correct,802.62,1
+chart-01,Chart reading,Larger panel,early_stop,37,37,['37'],True,correct,2435.64,3
+chart-01,Chart reading,Larger panel,zoom,37,71,['71'],False,wrong,3187.6,4
+chart-02,Chart reading,Smaller panel,direct,62,62,['62'],True,correct,811.41,1
+chart-02,Chart reading,Smaller panel,early_stop,62,62,['62'],True,correct,1593.84,2
+chart-02,Chart reading,Smaller panel,zoom,62,62,['62'],True,correct,3185.19,4
+table-01,Table lookup,Larger panel,direct,17,17,['17'],True,correct,803.6,1
+table-01,Table lookup,Larger panel,early_stop,17,17,['17'],True,correct,1632.92,2
+table-01,Table lookup,Larger panel,zoom,17,17,['17'],True,correct,3171.32,4
+table-02,Table lookup,Smaller panel,direct,24,14,['14'],False,wrong,833.92,1
+table-02,Table lookup,Smaller panel,early_stop,24,14,['14'],False,wrong,1657.18,2
+table-02,Table lookup,Smaller panel,zoom,24,24,['24'],True,correct,3404.4,4
+circuit-01,Circuit continuity,Larger panel,direct,broken,broken,['broken'],True,correct,789.11,1
+circuit-01,Circuit continuity,Larger panel,early_stop,broken,broken,['broken'],True,correct,1673.09,2
+circuit-01,Circuit continuity,Larger panel,zoom,broken,uncertain,['uncertain'],False,abstained,3125.58,4
+circuit-02,Circuit continuity,Smaller panel,direct,continuous,continuous,['continuous'],True,correct,816.49,1
+circuit-02,Circuit continuity,Smaller panel,early_stop,continuous,continuous,['continuous'],True,correct,1523.53,2
+circuit-02,Circuit continuity,Smaller panel,zoom,continuous,broken,['broken'],False,wrong,3116.6,4
+spatial-01,Spatial relation,Larger panel,direct,left,left,['left'],True,correct,901.07,1
+spatial-01,Spatial relation,Larger panel,early_stop,left,left,['left'],True,correct,1676.5,2
+spatial-01,Spatial relation,Larger panel,zoom,left,left,['left'],True,correct,2937.1,4
+spatial-02,Spatial relation,Smaller panel,direct,below,below,['below'],True,correct,808.54,1
+spatial-02,Spatial relation,Smaller panel,early_stop,below,below,['below'],True,correct,1704.99,2
+spatial-02,Spatial relation,Smaller panel,zoom,below,below,['below'],True,correct,3001.9,4
+gauge-01,Analog gauge,Larger panel,direct,40,30,['30'],False,wrong,803.97,1
+gauge-01,Analog gauge,Larger panel,early_stop,40,30,['30'],False,wrong,1697.04,2
+gauge-01,Analog gauge,Larger panel,zoom,40,40,['40'],True,correct,3191.9,4
+gauge-02,Analog gauge,Smaller panel,direct,70,60,['60'],False,wrong,769.85,1
+gauge-02,Analog gauge,Smaller panel,early_stop,70,60,['60'],False,wrong,1644.13,2
+gauge-02,Analog gauge,Smaller panel,zoom,70,70,['70'],True,correct,3120.46,4
