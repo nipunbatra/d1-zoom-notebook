@@ -4,22 +4,24 @@ import base64, html, json, zlib
 
 ROOT=Path(__file__).resolve().parents[1]
 def build():
-    data=json.loads((ROOT/"recordings/mini-benchmark-v2.json").read_text())
-    data.update(model_label="Liquid D1.2",transport="OpenRouter")
-    gemini_path=ROOT/"recordings/gemini-benchmark-v1.json"
-    if gemini_path.exists():
-        gemini=json.loads(gemini_path.read_text())
-        assert all(len(t["runs"])==3 and all(r["calls"][-1]["stage"]=="answer" for r in t["runs"].values()) for t in gemini["tasks"]),"Gemini recording incomplete"
-        data["model_suites"]=[gemini]
+    development=json.loads((ROOT/"recordings/context-development-v1.json").read_text())
+    testing=json.loads((ROOT/"recordings/context-test-v1.json").read_text())
+    for experiment in (development,testing):
+        assert all(t['runs'].get('adaptive',{}).get('complete') and t['runs'].get('repeat',{}).get('complete') for s in experiment['suites'] for t in s['tasks']),"Recording incomplete"
+    data=development["suites"][0]
+    data["model_suites"]=development["suites"][1:]
+    data["test_suites"]=testing["suites"]
+    data["selected_split"]="test"
     data["selected_id"]="count-02"
     template=(ROOT/"src/benchmark.html").read_text()
     cells=[]
     def md(source):cells.append(dict(cell_type="markdown",metadata={},source=source.splitlines(keepends=True)))
     def code(source,fold=False):
         cells.append(dict(cell_type="code",execution_count=None,metadata={"jupyter":{"source_hidden":True},"tags":["hide-input"]} if fold else {},source=source.splitlines(keepends=True),outputs=[]))
-    md("# Look closer: direct answer or crop first?\n\nRun all cells. This notebook includes every image, prompt, response and the interactive benchmark. **Replay is offline and free.** The worked example counts cross-slot screws; the final viewer has 16 examples in eight task families.\n\nThe comparison uses the same selected model, answer choices and 512 px input limit. Only the crop method gets extra calls. All answers are **multiple choice**, not open-ended extraction.")
-    code('''LIVE = False  # True reruns only the worked example: at most 5 billed requests.
+    md("# Look closer: preserve context, zoom when uncertain\n\nRun all cells. **Replay is offline and free.** The worked example counts cross-slot screws. The viewer includes 16 development and 16 new test examples, two models, all prompts, inputs and responses.\n\nAnswer once. If the answer is uncertain, find the **visible orange frame from image pixels**, preserve the whole panel, and answer with both overview and detail. This is a controlled framed-task experiment, not general learned grounding. All final answers are **multiple choice**.")
+    code('''LIVE = False  # True reruns only this example: at most 2 billed requests.
 TASK_ID = "count-02"
+SPLIT = "test"  # "development" keeps the original examples and earlier policies.
 MODEL_KEY = "d1"  # "gemini" selects Google's native Decisions API recordings.
 import base64, copy, html, io, json, os, zlib
 from IPython.display import display, HTML
@@ -38,7 +40,8 @@ if LIVE:
     packed=base64.b64encode(zlib.compress(json.dumps(dict(data=data,template=template)).encode(),9)).decode()
     code("# Embedded images, exact recordings and offline viewer. No helper files.\nBUNDLE = json.loads(zlib.decompress(base64.b64decode('"+packed+"')))\ndata = copy.deepcopy(BUNDLE['data'])\n",True)
     md("## 1. Shared instructions and task\n\nD1 uses `state`; Gemini uses `input`. Both use typed `questions`, rather than chat roles. The shared policy below plays the role of a system prompt and is **actually prepended to every question's instructions**. No ground-truth labels or coordinates are sent.")
-    code('''active = data if MODEL_KEY == "d1" else data["model_suites"][0]
+    code('''suites = data["test_suites"] if SPLIT == "test" else [data, *data["model_suites"]]
+active = suites[0 if MODEL_KEY == "d1" else 1]
 policy = active["protocol"]["system_prompt"]
 task = next(t for t in active["tasks"] if t["id"] == TASK_ID)
 original = Image.open(io.BytesIO(base64.b64decode(task["image"].split(",", 1)[1]))).convert("RGB")
@@ -46,21 +49,22 @@ print("SHARED INSTRUCTIONS", policy, "TASK", task["question"], sep="\\n\\n")
 print("Model:", active["protocol"]["model"])
 print("Final response type: choice. Options:", task["choices"])
 ''')
-    md("## 2. Image, request and crop functions\n\nEach request sends one JPEG at most 512 px on its longest edge. A location choice selects a 3 × 3 grid cell; Python adds half a cell of padding on every side, clips the window, and crops the **original pixels**. The budget is three crops. This tests location decisions with a fixed scale rule.")
-    code((ROOT/"scripts/benchmark_core.py").read_text()+'\nMODEL = active["protocol"]["model"]\n',True)
+    md("## 2. Frozen controller and request functions\n\nKeep a unique initial answer when top probability ≥ 0.85 and margin ≥ 0.15. Otherwise locate the complete orange frame from pixels, pad its width and height by 5% per side, and request one follow-up with overview + detail. Each image is at most 512 px. Keep the initial answer unless the follow-up is unique, non-uncertain, and raises top probability by at least 0.05. These are fixed heuristics, not calibrated correctness guarantees. No evaluation coordinates are read by the controller.")
+    controller=(ROOT/"scripts/context_controller.py").read_text().replace('from benchmark_core import image_input, question\n','')
+    code((ROOT/"scripts/benchmark_core.py").read_text()+'\n'+controller+'\nMODEL = active["protocol"]["model"]\n',True)
     code('''# Replay validates the current prompt and pixels; LIVE makes the same request.
-runs = {name: {"calls": []} for name in ("direct", "zoom")}
-def ask(method, stage, window):
+runs = {name: {"calls": []} for name in ("direct", "adaptive")}
+def ask(method, window):
     if LIVE:
-        call = call_model(task, original, window, stage, key)
+        call = call_answer(task, original, MODEL, method, window, key)
     else:
         call = copy.deepcopy(task["runs"][method]["calls"][len(runs[method]["calls"])])
-        body, size, digest = request_body(task, original, window, stage)
-        assert call["stage"] == stage and call["window"] == window
+        body, sizes, digests, windows = build_request(task, original, MODEL, method, window)
+        assert call["stage"] == "answer" and call["window"] == window
         assert call["body"]["questions"] == body["questions"], "Prompt changed: use LIVE=True."
         text_key = "input" if MODEL_KEY == "gemini" else "state"
         assert call["body"][text_key][0] == body[text_key][0] and call["body"]["model"] == MODEL
-        assert call["pixel_hash"] == digest and call["input_size"] == size, "Image changed: use LIVE=True."
+        assert call.get("pixel_hashes",[call["pixel_hash"]]) == digests and call["input_size"] == sizes[-1], "Image changed: use LIVE=True."
     runs[method]["calls"].append(call)
     show(call, method)
     return call
@@ -75,7 +79,7 @@ def show(call, method):
     draw.rectangle(call["window"], outline="#25865c", width=7)
     left.thumbnail((420,300))
     body = call["body"]
-    image_url = "data:image/jpeg;base64,"+body["input"][1]["data"] if "input" in body else body["state"][1]["image_url"]["url"]
+    image_url = "data:image/jpeg;base64,"+body["input"][-1]["data"] if "input" in body else body["state"][-1]["image_url"]["url"]
     right = decode(image_url)
     right.thumbnail((420,300))
     pair = Image.new("RGB",(860,320),"#eef2e9")
@@ -93,27 +97,25 @@ def show(call, method):
 ''',True)
     md("## 3. Direct: one image, one answer\n\nThis request contains only the final task question. It makes no crop decisions.")
     code('''full = [0, 0, *original.size]
-direct = ask("direct", "answer", full)
+direct = ask("direct", full)
 runs["direct"]["stop_reason"] = "single full-image answer"
 ''')
-    md("## 4. Decide where to look, crop, repeat\n\nRouting responses are **actions**, not answers. Each printed window is a deterministic crop operation with no model call or invented reasoning. A final, separate request will answer the original question.")
-    code('''window = full
-for depth in range(MAX_CROPS):
-    route = ask("zoom", "route", window)
-    action = route["response"]["answers"]["route"]["choice"]
-    if action == "not_visible":
-        runs["zoom"]["stop_reason"] = "not_visible"
-        break
-    window = crop_window(window, action)
-    route["next_window"] = window
-    print(f"CROP {depth+1} (Python): {action} -> source window {window}")
-else:
-    runs["zoom"]["stop_reason"] = "3-crop budget reached"
+    md("## 4. Apply the uncertainty gate and preserve the frame\n\nThis step is Python, with no API call. The model's answer probabilities drive the gate. The crop comes from the visible frame pixels, not a model-generated box or ground truth. Missing, clipped or non-rectangular frames fall back to the initial answer.")
+    code('''runs["adaptive"] = initialize_run(direct, original, "adaptive")
+print(json.dumps(runs["adaptive"]["decision"], indent=2))
+window = full
+if runs["adaptive"]["decision"]["followup"]:
+    window = runs["adaptive"]["crop_proposal"]["bounds"]
+    print("CROP (Python):", window)
+    print("Next input: overview + detail, showing the same objects once.")
 ''')
     md("## 5. Final answer and independent check\n\nThe final question and options are identical to the direct request. Correct means a unique top-probability answer matches the fixture label. A tie or abstention is unresolved. Timing sums every model call; it is HTTP time, not hardware inference time.")
-    code('''final = ask("zoom", "answer", window)
+    code('''if runs["adaptive"]["decision"]["followup"]:
+    detail = ask("adaptive", window)
+finalize_run(runs["adaptive"])
+print(runs["adaptive"]["selection_reason"])
 print("KNOWN ANSWER:", task["truth"], "(fixture metadata, withheld from inference)")
-for method in ("direct", "zoom"):
+for method in ("direct", "adaptive"):
     print(method, outcome(task, runs[method]))
 print("Evidence:", task["evidence"]["facts"])
 if LIVE:
@@ -122,9 +124,10 @@ if LIVE:
     display(HTML('<a download="live-rerun.json" href="data:application/json;base64,'+download+'">Download this live rerun</a>'))
     print("Fresh results are shown above. The gallery below preserves the original recorded benchmark.")
 ''')
-    md("## 6. Explore the whole mini-benchmark\n\nChoose a task, then step through its prompts and crops. Compare the final answers at the top. Switch the zoom policy to inspect the retained early-stop pilot. The expanded score table includes every example, including failures. The fixtures are controlled illustrations; the thermal image is not a physical measurement.\n\nThe early-stop pilot was followed by a fixed crop-budget experiment on the same fixtures, with the unchanged direct responses reused. These are exploratory development results, not a held-out benchmark or evidence of general accuracy gains.")
+    md("## 6. Compare models, policies and the new test set\n\nThe new test set was generated and the controller frozen before its inference. Development retains the old grid-crop and model-stop policies. The repeat-full-view control uses the same gate and selection rule but repeats the original image; it matches request count, not image tokens. The table includes all outcomes and timings.\n\nThis tests new labels/layouts within the same framed synthetic task families. It does not establish performance on natural images or learned optimal scale selection. Thermal values are illustrative, not measurements.")
     code('''data["selected_id"] = TASK_ID
 data["selected_model"] = active["protocol"]["model"]
+data["selected_split"] = SPLIT
 viewer = BUNDLE["template"].replace("__BENCHMARK_DATA__", json.dumps(data).replace("<", "\\\\u003c"))
 display({"text/html": '<iframe title="Visual mini-benchmark" sandbox="allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox" style="width:100%;height:1150px;border:0" srcdoc="'+html.escape(viewer,quote=True)+'"></iframe>'}, raw=True)
 ''')

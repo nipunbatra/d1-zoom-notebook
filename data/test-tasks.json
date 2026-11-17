@@ -1,0 +1,1047 @@
+[
+  {
+    "id": "text-01",
+    "family": "Small text",
+    "label": "Small text",
+    "variant": "Larger panel",
+    "question": "Read the four-character UNIT code in the orange-outlined service record.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "R852": "R852",
+      "R528": "R528",
+      "M641": "M641",
+      "M614": "M614",
+      "R582": "R582",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "R582",
+    "evidence": {
+      "bounds": [
+        591,
+        451,
+        1311,
+        871
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "UNIT": "R582"
+      }
+    },
+    "image_path": "images/test-text-01.png",
+    "image_sha256": "7acc8374180773fe2d2c272cba737af766e407b164b067d4467c032c2bfe1f72",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "text-02",
+    "family": "Small text",
+    "label": "Small text",
+    "variant": "Smaller panel",
+    "question": "Read the four-character UNIT code in the orange-outlined service record.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "R582": "R582",
+      "R528": "R528",
+      "M641": "M641",
+      "M614": "M614",
+      "R852": "R852",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "M614",
+    "evidence": {
+      "bounds": [
+        1043,
+        364,
+        1403,
+        574
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "UNIT": "M614"
+      }
+    },
+    "image_path": "images/test-text-02.png",
+    "image_sha256": "bb169e0a967ec3df6065f0ca50cf2a04b4c6ffc2c89f5a1be7338c5f64c1e0d4",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "count-01",
+    "family": "Counting",
+    "label": "Counting",
+    "variant": "Larger panel",
+    "question": "How many screw heads have a cross-shaped slot in the orange-outlined tray? Do not count the plain rings.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "5": "5",
+      "9": "9",
+      "7": "7",
+      "11": "11",
+      "13": "13",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "7",
+    "evidence": {
+      "bounds": [
+        996,
+        645,
+        1716,
+        1065
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "objects": [
+          {
+            "centre": [
+              92,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              92,
+              188
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              188
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              188
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              92,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              225,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              358,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              354
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              354
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              354
+            ],
+            "kind": "plain ring"
+          }
+        ],
+        "cross_slot_count": 7
+      }
+    },
+    "image_path": "images/test-count-01.png",
+    "image_sha256": "e69c6a0a2bb7c100c0fc5c49a6a555f723a7e90592ffb03716a93fdab101922c",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "count-02",
+    "family": "Counting",
+    "label": "Counting",
+    "variant": "Smaller panel",
+    "question": "How many screw heads have a cross-shaped slot in the orange-outlined tray? Do not count the plain rings.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "9": "9",
+      "7": "7",
+      "13": "13",
+      "5": "5",
+      "11": "11",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "13",
+    "evidence": {
+      "bounds": [
+        269,
+        697,
+        629,
+        907
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "objects": [
+          {
+            "centre": [
+              92,
+              105
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              105
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              225,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              491,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              188
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              225,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              358,
+              271
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              624,
+              271
+            ],
+            "kind": "cross-slot screw"
+          },
+          {
+            "centre": [
+              92,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              225,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              358,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              491,
+              354
+            ],
+            "kind": "plain ring"
+          },
+          {
+            "centre": [
+              624,
+              354
+            ],
+            "kind": "plain ring"
+          }
+        ],
+        "cross_slot_count": 13
+      }
+    },
+    "image_path": "images/test-count-02.png",
+    "image_sha256": "7ee5a72fadde3a7362e54f0637ba853f97ab27deb80055a53371451d23303015",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "thermal-01",
+    "family": "Thermal colorbar",
+    "label": "Thermal colorbar",
+    "variant": "Larger panel",
+    "question": "What is the upper endpoint printed on the colorbar in the orange-outlined thermal display, in degrees C? Read the legend, not the brightest image pixel.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "47": "47",
+      "36": "36",
+      "18": "18",
+      "54": "54",
+      "76": "76",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "54",
+    "evidence": {
+      "bounds": [
+        609,
+        480,
+        1329,
+        900
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "upper_endpoint_C": 54,
+        "lower_endpoint_C": 18,
+        "radiometric": false
+      }
+    },
+    "image_path": "images/test-thermal-01.png",
+    "image_sha256": "8bbbaafe7cd9aa6b801eab5725c1b8b434977e8e2770197c9c2f531f1eacdf96",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "thermal-02",
+    "family": "Thermal colorbar",
+    "label": "Thermal colorbar",
+    "variant": "Smaller panel",
+    "question": "What is the upper endpoint printed on the colorbar in the orange-outlined thermal display, in degrees C? Read the legend, not the brightest image pixel.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "54": "54",
+      "18": "18",
+      "36": "36",
+      "76": "76",
+      "47": "47",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "76",
+    "evidence": {
+      "bounds": [
+        189,
+        500,
+        549,
+        710
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "upper_endpoint_C": 76,
+        "lower_endpoint_C": 18,
+        "radiometric": false
+      }
+    },
+    "image_path": "images/test-thermal-02.png",
+    "image_sha256": "0945d5a5239cc9b9ff485c3d5988e30fd520356a83eafdc676a7f60362fdad50",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "chart-01",
+    "family": "Chart reading",
+    "label": "Chart reading",
+    "variant": "Larger panel",
+    "question": "Read the value printed above Cedar's bar in the orange-outlined chart.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "42": "42",
+      "24": "24",
+      "71": "71",
+      "48": "48",
+      "58": "58",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "42",
+    "evidence": {
+      "bounds": [
+        373,
+        215,
+        1093,
+        635
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "Alder": 24,
+        "Birch": 48,
+        "Cedar": 42,
+        "Delta": 71
+      }
+    },
+    "image_path": "images/test-chart-01.png",
+    "image_sha256": "04e7bd297a5e20ec0644141441d74ef3790054d4e298bb7b4fc69d132a65215f",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "chart-02",
+    "family": "Chart reading",
+    "label": "Chart reading",
+    "variant": "Smaller panel",
+    "question": "Read the value printed above Cedar's bar in the orange-outlined chart.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "48": "48",
+      "24": "24",
+      "58": "58",
+      "71": "71",
+      "42": "42",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "58",
+    "evidence": {
+      "bounds": [
+        397,
+        314,
+        757,
+        524
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "Alder": 24,
+        "Birch": 48,
+        "Cedar": 58,
+        "Delta": 71
+      }
+    },
+    "image_path": "images/test-chart-02.png",
+    "image_sha256": "159420c9a85efcaf77a7fc9f839ce60daced2870cd87799c3ebfb6edccbb4aae",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "table-01",
+    "family": "Table lookup",
+    "label": "Table lookup",
+    "variant": "Larger panel",
+    "question": "Read the Friday value in row D of the orange-outlined table.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "26": "26",
+      "19": "19",
+      "21": "21",
+      "31": "31",
+      "23": "23",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "26",
+    "evidence": {
+      "bounds": [
+        893,
+        188,
+        1613,
+        608
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "columns": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "rows": {
+          "A": [
+            12,
+            19,
+            21,
+            8,
+            14
+          ],
+          "B": [
+            9,
+            14,
+            16,
+            22,
+            6
+          ],
+          "C": [
+            20,
+            7,
+            15,
+            11,
+            18
+          ],
+          "D": [
+            14,
+            9,
+            13,
+            21,
+            26
+          ],
+          "E": [
+            23,
+            16,
+            12,
+            19,
+            10
+          ]
+        }
+      }
+    },
+    "image_path": "images/test-table-01.png",
+    "image_sha256": "b35f0331c32286413952fa35517d369d9d7bba6824762593f997b6c3a3f292e0",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "table-02",
+    "family": "Table lookup",
+    "label": "Table lookup",
+    "variant": "Smaller panel",
+    "question": "Read the Friday value in row D of the orange-outlined table.",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "26": "26",
+      "21": "21",
+      "31": "31",
+      "23": "23",
+      "19": "19",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "31",
+    "evidence": {
+      "bounds": [
+        1169,
+        512,
+        1529,
+        722
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "columns": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "rows": {
+          "A": [
+            12,
+            19,
+            21,
+            8,
+            14
+          ],
+          "B": [
+            9,
+            14,
+            16,
+            22,
+            6
+          ],
+          "C": [
+            20,
+            7,
+            15,
+            11,
+            18
+          ],
+          "D": [
+            14,
+            9,
+            13,
+            21,
+            31
+          ],
+          "E": [
+            23,
+            16,
+            12,
+            19,
+            10
+          ]
+        }
+      }
+    },
+    "image_path": "images/test-table-02.png",
+    "image_sha256": "7fd870b9c8d33736938300dd24640646025b7af3b84226e7fdc516505a2217ff",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "circuit-01",
+    "family": "Circuit continuity",
+    "label": "Circuit continuity",
+    "variant": "Larger panel",
+    "question": "Is there a visible break in the gold-colored copper trace in the orange-outlined circuit panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "continuous": "continuous",
+      "broken": "broken",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "broken",
+    "evidence": {
+      "bounds": [
+        93,
+        274,
+        813,
+        694
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "trace_path": [
+          [
+            65,
+            300
+          ],
+          [
+            155,
+            300
+          ],
+          [
+            155,
+            180
+          ],
+          [
+            370,
+            180
+          ],
+          [
+            370,
+            280
+          ],
+          [
+            650,
+            280
+          ]
+        ],
+        "gap": [
+          210,
+          173,
+          217,
+          188
+        ]
+      }
+    },
+    "image_path": "images/test-circuit-01.png",
+    "image_sha256": "b81dc3940fd39f411db792f57a14d76eeff2b2bd08e0822dc82ebfa42c73e621",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "circuit-02",
+    "family": "Circuit continuity",
+    "label": "Circuit continuity",
+    "variant": "Smaller panel",
+    "question": "Is there a visible break in the gold-colored copper trace in the orange-outlined circuit panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "continuous": "continuous",
+      "broken": "broken",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "continuous",
+    "evidence": {
+      "bounds": [
+        1079,
+        362,
+        1439,
+        572
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "trace_path": [
+          [
+            65,
+            300
+          ],
+          [
+            155,
+            300
+          ],
+          [
+            155,
+            180
+          ],
+          [
+            370,
+            180
+          ],
+          [
+            370,
+            280
+          ],
+          [
+            650,
+            280
+          ]
+        ],
+        "gap": null
+      }
+    },
+    "image_path": "images/test-circuit-02.png",
+    "image_sha256": "5dfdf518bb1c1f2ca7d6842098bbf0512a8f2ca95db70b930fa7f082645a4339",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "spatial-01",
+    "family": "Spatial relation",
+    "label": "Spatial relation",
+    "variant": "Larger panel",
+    "question": "Where is the black triangle relative to the blue square in the orange-outlined panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "left": "left",
+      "below": "below",
+      "right": "right",
+      "above": "above",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "above",
+    "evidence": {
+      "bounds": [
+        543,
+        569,
+        1263,
+        989
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "triangle_centre": [
+          371,
+          137
+        ],
+        "square_centre": [
+          371,
+          229
+        ]
+      }
+    },
+    "image_path": "images/test-spatial-01.png",
+    "image_sha256": "f7e80fc62a668c2b15a93d17f32ca5a42f38bfbd279d9ce473169583d069250a",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "spatial-02",
+    "family": "Spatial relation",
+    "label": "Spatial relation",
+    "variant": "Smaller panel",
+    "question": "Where is the black triangle relative to the blue square in the orange-outlined panel?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "below": "below",
+      "left": "left",
+      "above": "above",
+      "right": "right",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "right",
+    "evidence": {
+      "bounds": [
+        813,
+        442,
+        1173,
+        652
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "triangle_centre": [
+          463,
+          229
+        ],
+        "square_centre": [
+          371,
+          229
+        ]
+      }
+    },
+    "image_path": "images/test-spatial-02.png",
+    "image_sha256": "f03c083e8ecb01ccea24391ae45dd694b2ac2afa200a208456877e2f539f07c3",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "gauge-01",
+    "family": "Analog gauge",
+    "label": "Analog gauge",
+    "variant": "Larger panel",
+    "question": "Which labeled value does the needle point to in the orange-outlined dial?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "10": "10",
+      "90": "90",
+      "80": "80",
+      "70": "70",
+      "20": "20",
+      "30": "30",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "20",
+    "evidence": {
+      "bounds": [
+        233,
+        290,
+        953,
+        710
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "needle_value": 20,
+        "scale": [
+          0,
+          100
+        ]
+      }
+    },
+    "image_path": "images/test-gauge-01.png",
+    "image_sha256": "00cbc33012a983ad608c55cd18177feeb4a4127c832e82946a589dd6aa680b69",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  },
+  {
+    "id": "gauge-02",
+    "family": "Analog gauge",
+    "label": "Analog gauge",
+    "variant": "Smaller panel",
+    "question": "Which labeled value does the needle point to in the orange-outlined dial?",
+    "route_target": "the entire orange-outlined panel, including all its contents and labels",
+    "choices": {
+      "90": "90",
+      "80": "80",
+      "10": "10",
+      "20": "20",
+      "70": "70",
+      "30": "30",
+      "uncertain": "The evidence is missing, clipped, or too unclear to answer."
+    },
+    "truth": "90",
+    "evidence": {
+      "bounds": [
+        991,
+        414,
+        1351,
+        624
+      ],
+      "explanation": "New generated test answer; excluded from inference and controller decisions.",
+      "facts": {
+        "needle_value": 90,
+        "scale": [
+          0,
+          100
+        ]
+      }
+    },
+    "image_path": "images/test-gauge-02.png",
+    "image_sha256": "c83d5c4b1ce1b4630691543ffeb390d40a36ffe2e45e931ef3a77a454d85a88e",
+    "size": [
+      1800,
+      1200
+    ],
+    "source": "New synthetic test fixture, same task families; not a natural image or measurement.",
+    "split": "test"
+  }
+]

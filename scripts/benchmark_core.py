@@ -71,7 +71,7 @@ def call_model(task, original, window, stage, key):
         pixel_hash=digest,recorded_at=datetime.now(timezone.utc).isoformat())
 
 def outcome(task, run):
-    answer = run["calls"][-1]["response"]["answers"]["answer"]
+    answer = run["calls"][run.get("selected_call",-1)]["response"]["answers"]["answer"]
     probabilities = answer["probabilities"]; high = max(probabilities.values())
     top = [k for k,p in probabilities.items() if abs(p-high)<1e-12]
     return {"answer":answer["choice"],"top":top,"correct":len(top)==1 and top[0]==task["truth"]==answer["choice"],

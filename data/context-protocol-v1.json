@@ -1,0 +1,31 @@
+{
+  "frozen_at": "2026-11-17T10:03:19.268572+00:00",
+  "controller": {
+    "version": "context-v1",
+    "probability_threshold": 0.85,
+    "margin_threshold": 0.15,
+    "acceptance_gain": 0.05,
+    "padding_fraction": 0.05,
+    "tie_tolerance": 1e-12,
+    "orange_mask": {
+      "red_min_exclusive": 190,
+      "green_min_exclusive": 80,
+      "green_max_exclusive": 170,
+      "blue_max_exclusive": 85
+    },
+    "minimum_edge_coverage": 0.9,
+    "minimum_frame_side": 30,
+    "primary_outcome": "Unique-top exact answer accuracy on all 16 new synthetic test examples, relative to their paired direct answers.",
+    "scope": "One visible orange rectangular task frame. This is an image-derived region proposal, not learned general object grounding or optimal scale selection.",
+    "selection": "Retain the initial answer unless the follow-up has a unique non-uncertain answer and its top probability exceeds the initial top by at least .05. Probabilities are uncalibrated heuristics, not correctness guarantees.",
+    "input_policy": "Adaptive follow-up receives original overview plus full-frame crop. Repeat control receives the original overview again. Same final question/options; each image capped at512px. Control matches request count, not image-token budget.",
+    "test_policy": "Freeze controller, prompts and test generator before any new-test inference. Do not tune on test outcomes. Keep all outcomes."
+  },
+  "file_sha256": {
+    "scripts/context_controller.py": "d434bce09d623ddd9c66fa997976486be6e745f463911ee7acdb52e8a93cc642",
+    "scripts/benchmark_core.py": "6257528f1119e279e367602614914c5eb07b9751e493330ad534ec0f79f90520",
+    "scripts/make_benchmark.py": "83c28a8a32b45ae61f0ae596d58d8705e9267b483889091f2b0ff4d835362ec5",
+    "scripts/make_heldout.py": "434e3d0246dfa04b270b018cd4928e2d6c4f649d3b5c8a23bcb51ea735feffbc",
+    "data/test-tasks.json": "22d8122086dcf180553f380e1e76007eb05ad0ff594993c45a30e0ee405e7c86"
+  }
+}

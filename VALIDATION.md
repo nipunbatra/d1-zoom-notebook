@@ -1,35 +1,34 @@
 # Verification — 17 November 2026
 
-## Records and comparison
+## Frozen experiment and accuracy
 
-- 16 fixtures, eight families, two examples per family; generated and visually checked before inference. All labels checked against the generating values/object lists/geometry.
-- 113 unique real OpenRouter responses: 16 direct, 64 fixed-budget crop, 33 early-stop pilot. Resolved model was `liquid/d1.2-20261116` in every call. No provider fallbacks or response replacement.
-- Rebuilt **all 113 submitted JPEGs byte for byte** from the recorded original image, crop window, 512 px cap and quality 95. Checked image hashes, dimensions, crop geometry, response schema/probabilities, prompts and model IDs.
-- Every final question and candidate set is identical across methods for its fixture. Shared instructions are prepended to the typed question. Ground-truth labels/coordinates are not sent as metadata; candidate answers are supplied in this closed-choice task.
-- All pilot recordings are preserved exactly. Direct responses are reused unchanged in the second experiment. The second crop protocol was developed after observing the pilot; this is explicitly not a held-out evaluation.
-- Scores recomputed from unique top-probability matches: direct **12/16**, fixed crop **12/16**, early-stop **11/16**. Fixed cropping gains four and loses four. Ties and abstentions count as unresolved, not correct. No claim of overall accuracy improvement.
-- Times sum recorded HTTP durations across every model call. Mean per-example HTTP time is **856.67 ms**, **3246.42 ms**, and **1721.53 ms**, respectively. API-reported cost for the 113 unique calls is **$0.001178**.
+- Original 16 development images regenerate byte for byte unchanged. Old D1 and Gemini response records are preserved exactly.
+- Generated 16 new test images across the same eight families with new labels/layouts, fixed seed 2026111703. The controller, prompt code, generator and test manifest were hashed at 10:03:19 UTC before any test inference. No test-driven retuning.
+- New-test exact accuracy: D1 direct **9/16**, repeated full view **9/16**, revised controller **15/16**. Gemini direct **14/16**, repeat **14/16**, revised **15/16**. D1 gains six and Gemini gains one, with zero regressions in this sample.
+- Development: D1 direct 12 → revised 16; Gemini direct 12 → revised 15. Repeat controls remain 12. These are development scores and clearly separated from the new test set.
+- Selection replay reproduces every `selected_call`, confidence gate, fallback, crop proposal and acceptance reason from the saved inputs. A rejected follow-up does not replace the selected initial answer in scoring.
+- Correctness means a unique highest-probability answer matching the label; ties and abstentions do not count as correct. Remaining failures are retained: a confident D1 code misread and a Gemini counting error.
 
-## Gemini native API
+## Inputs and comparisons
 
-- Existing Gemini environment key authenticated successfully. Recorded 115 real native Decisions calls on the same 16 images and three methods. All 115 request JPEGs were rebuilt byte for byte; instructions, options and crop paths were checked against the frozen D1 protocol.
-- Native responses are preserved unchanged, with their actual `input` requests. No invented model build IDs or API-reported costs. The requested alias is `gemini-decision-1`; native responses omit a dated resolved version.
-- Gemini direct **12/16**, fixed crop **11/16**, early-stop **12/16**. Mean total HTTP times: **1108.07 ms**, **5397.64 ms**, **2425.21 ms**. All latency outliers are retained.
-- 228 requests across both models, 96 method/example runs. `data/model-comparison.csv` contains all results. These APIs have different transports and possibly different internal preprocessing, so latency is not a pure model comparison.
+- All 228 previous requests were validated. The new paired experiments contain 134 distinct calls: 32 reused development baselines and 102 newly recorded calls. Total across all versions: 330.
+- Every new request was rebuilt exactly from source pixels, including both overview and detail JPEGs. Full input text, instructions, choices, pixel hashes, dimensions and image bytes match the records.
+- Every image-derived crop contains the complete evaluation panel. Evaluation coordinates are consulted only by validation, never by the controller or request builder.
+- Frame detection fallback checks pass for blank images, broken frames, multiple disconnected frames and clipped frames.
+- The repeat control has the same initial answer, gate, request count and acceptance rule as adaptive zoom. It matches requests, **not** image tokens; the adaptive follow-up has two images. No claim that every intervention component is independently isolated.
+- All timings include the initial answer and every follow-up, even rejected ones. API latency outliers are retained. D1/OpenRouter and Gemini/Google native use different transports.
 
-## Notebook and interface
+## Artifact verification
 
-- All **nine notebook code cells** executed successfully for **both model selections** in an isolated temporary directory containing only the notebook, with network connections blocked. Replay validates prompt and input-pixel identity. No helper files are required.
-- Notebook setup uses Pillow only if already installed, otherwise installs the pinned package. Installation and optional live inference require internet; recorded replay does not.
-- Browser checks: model dropdown preserves the selected task; cross-model table matches all six model/method aggregates; both policy selections, direct versus crop traces, full sequence including deterministic crops, counting improvement, counting regression, score table, exact prompts, tied choices, image pan/zoom/reset and source-region coverage.
-- The full original remains fixed beside the exact submitted JPEG. Three numbered crop windows are visible on the original at the final step. Region coverage is labeled as evaluation geometry, not accuracy.
-- Shared instructions, task question, final answers and total time are visible together; raw request/response and notebook code are expandable. Final task answers are distinct from intermediate routing choices.
-- All media, code and records are embedded in the static page. No runtime network requests or API credentials are needed.
+- Notebook has nine code cells, all assets/functions/records embedded. Both provider paths and the no-follow-up path are executed in an otherwise empty directory with network connections blocked.
+- Replay checks actual prompts and pixels. LIVE reruns remain separate from immutable recorded benchmark scores.
+- Viewer distinguishes initial/model-detail answers from Python gate, pixel crop and final selection. Both images sent on a detail request remain inspectable.
+- Standalone browser and live Jupyter checks passed for the separate Look closer/Benchmark tabs, model/example switching, frame crop, exact two-image prompt and benchmark-to-walkthrough navigation. Browser error logs were empty.
+- Tables use `selected_call`, selected model and selected split. Earlier policies remain available only where actually recorded; unsupported policies are not silently substituted.
+- Source code, raw API responses and exact requests are available without exposing credentials. Published content and decoded notebook assets are scanned for credentials, account IDs and local paths.
 
-Run `python3 scripts/validate.py` to regenerate `data/scorecard.json` and `data/scorecard.csv`. Run `python3 scripts/execute_notebook.py` to repeat isolated notebook execution. The page can be served directly by GitHub Pages or opened as a standalone HTML file.
+Run `python3 scripts/validate.py` for the complete checks and regenerated scorecards. The new paired scorecard is `data/context-comparison.csv`; `data/context-protocol-v1.json` stores the frozen hashes and primary outcome.
 
-## Scope
+## Limits
 
-These are generated, multiple-choice teaching fixtures with a marked target panel. They are not natural-image, satellite, medical, or industrial test sets. The thermal image is non-radiometric. The crop controller selects a location under a fixed padding and budget rule; it does not demonstrate learned optimal scale selection or APERTURE. A 16-item development set and single samples cannot establish general model performance or reliable latency distributions.
-
-Independent read-only review found two provenance issues, both fixed: LIVE reruns now stay separate from immutable recorded scores, and protocol-development/direct-reuse disclosure is rendered in the standalone benchmark panel.
+These are marked, procedural, closed-choice images. Orange-frame detection is a task-specific image-processing aid; the controller does not learn general object localization or optimal scale. Confidence thresholds are uncalibrated heuristics. Sixteen new within-family examples, one run per model/method and synthetic thermal labels cannot establish general-world performance, statistical certainty or physical measurement accuracy.
