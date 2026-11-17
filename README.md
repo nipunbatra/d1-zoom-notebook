@@ -1,47 +1,53 @@
-# Watch the model look closer
+# D1 visual search
 
-[Open the interactive lesson](https://nipunbatra.github.io/d1-zoom-notebook/) · [Download the companion notebook](https://nipunbatra.github.io/d1-zoom-notebook/d1_crop_walkthrough.ipynb)
+[Open the viewer](https://nipunbatra.github.io/d1-zoom-notebook/) · [Download the notebook](https://nipunbatra.github.io/d1-zoom-notebook/d1_crop_walkthrough.ipynb)
 
-Choose an example and play its recorded path. Animated zoom, pan, original and cropped inputs, exact prompts, typed questions, real answers, probabilities, and HTTP timings are included. There is nothing to type and no API key is needed. The single HTML file works offline; Python code is folded below the gallery.
+Full image and current crop side by side. Numbered crop windows stay on the original. Prompt, answer, and HTTP time are visible together. Everything is precomputed; no key or typing is needed. Play, step, pan, or zoom. Code and raw probabilities expand on demand.
 
-## Four examples
+## Examples and correctness
 
-| Example | Recorded path | Calls | Sum of HTTP times |
-|---|---|---:|---:|
-| Cat’s nose, natural photograph | bottom → centre | 3 | 3,079.32 ms |
-| Palm island, NASA satellite comparison figure | top_left → left | 3 | 7,200.74 ms |
-| Material defect, compared with a healthy reference | centre → centre | 3 | 3,042.89 ms |
-| Circuit-board defects | not_visible; stop and review annotations | 2 | 2,074.71 ms |
+| Example | What the recorded calls show |
+|---|---|
+| Small text, 512 px input cap | Full-image reading is tied between B742 and B174 (23.5% each). Crop 2 returns the known code B742 at 99.7%. Some location decisions still miss the outline centre; these are flagged. |
+| Cat, control | The nose is already visible without zoom. The final selected cell is above it. A failure/control, not a successful zoom example. |
+| Satellite, drift | Later routing moves left of the island; the next crop cuts off its right side. Both are marked. |
+| Material, context loss | centre → centre → not_visible. The deeper crop stops the search. |
+| Circuit board, miss | not_visible despite independent defect annotations. No predicted region is invented. |
 
-All answers are actual `liquid/d1.2-20261116` responses recorded through OpenRouter on 17 November 2026. The natural and satellite cases were each run once without retries or selecting an answer. The material case was selected from an earlier batch because it follows the full crop path; the PCB case shows a localization miss. These four teaching cases are not a benchmark. HTTP times include networking and provider behavior.
+The small-text test asks **the same reading question at every level** and caps each submitted image at 512 pixels on its longest edge. The known code and orange-outline coordinates come from the generated fixture; they are not supplied as answer metadata to the model. Candidate answers are supplied in the choice question. The initial returned choice was B742, but it tied exactly with B174, so the UI shows the tie. This is uncertainty reduction in one controlled example, not an accuracy benchmark. A separate, uncapped full-resolution call already read B742 correctly at 97.7%; zoom was unnecessary under that condition.
 
-## How the steps work
+Cat and satellite errors are visual-review findings, not scored against invented ground-truth boxes. The fixture's answer and centre-in-cell checks use exact generated labels. Material and PCB gold boxes are independent dataset annotations, withheld from inference. Purple boxes are grid-derived regions, not native detector boxes or object outlines.
 
-1. View the original image and the fixed target.
-2. Ask whether the target is visible, or compare with a supplied healthy reference.
-3. Ask for one cell of an imaginary 3 × 3 grid, or `not_visible`.
-4. Pad the selected cell by half a cell on each side, clip to the image, and crop original pixels.
-5. Ask for a finer cell inside the crop.
-6. Add the crop origin to map that cell back to the original image.
+Questions worth testing with zoom are detail-dependent: small text, tiny component attributes, or a local count **under a specified image-resolution budget**. Recognizing a large visible object is a weak zoom demonstration. A higher model probability alone does not establish an accuracy improvement. Cropping can discard context or part of the target.
 
-A `not_visible` answer stops the search. The presence/defect score does not force a location. Purple boxes are deterministic grid regions, not native bounding-box predictions or tight object boundaries. Gold boxes are independent dataset annotations, withheld from the model. No ground-truth boxes are supplied for the cat or satellite cases. High choice probability is not a box-quality score.
+## Crop rule
 
-Drag to pan, scroll or use +/− to zoom, and choose **Reset to step** to restore the camera. Those controls affect only the displayed view. The **Crop & zoom** step changes the actual input pixels for the next request. Every model step shows its precise input and prompt; raw JSON and code expand on demand.
+A location call chooses a cell in a 3 × 3 grid, or `not_visible`. Pad the selected cell by half a cell on every side, clip to the current image, then crop the original pixels. Repeat for at most four location calls, stopping at `not_visible` or before a proposed crop smaller than 32 pixels. No upsampling. The cat, satellite, and reading examples each include three actual crops. Original-view coordinates are preserved throughout. The right panel uses the exact submitted JPEG, including downsampling in the reading test; source-crop and submitted-image dimensions are displayed separately.
 
-## Companion notebook
+Manual pan/zoom affects only the right-hand view. The left stays fixed. **Result** shows the last model call beside the final overlays; it does not imply an extra request. The viewer combines each crop transition with its ensuing model call; the notebook also retains separate crop images.
 
-Open `d1_crop_walkthrough.ipynb` in Jupyter and run all cells. It contains 10 code cells: embedded assets, small utilities, and one worked material-inspection example. The final cell embeds all four interactive replays. Images, records, and viewer are self-contained: no checkout, helper module, server, or image downloads. Pillow is the only extra package; setup installs it if missing. IPython comes with Jupyter. Replay otherwise works offline. Running all cells produces trusted interactive outputs; static intermediate images remain readable if a frontend disables scripts.
+## Run or edit
 
-Leave `LIVE = False` for replay. Optionally set it to `True` for up to three billed material-example requests, using `OPENROUTER_API_KEY` or a hidden key prompt. The other three gallery examples remain recorded. Credentials are never embedded or saved. Replay rejects changed inputs or prompts rather than silently reusing mismatched answers.
+Open `d1_crop_walkthrough.ipynb` in Jupyter and run all cells. Images, recordings, and the viewer are embedded. There are 10 code cells; the worked Python example is material inspection, and the final gallery contains all five examples. Pillow is installed by setup if missing; otherwise replay is offline. No helper files or project checkout are needed. Trust or execute the notebook to enable its interactive output.
 
-This version was executed in an isolated directory with HTTP blocked and checked in JupyterLab. The material example was also checked with three fresh successful API calls. OpenRouter's multimodal Decisions endpoint supports the decision types used here; its Liquid adapter did not accept native bounding-box questions in our checks.
+Optional `LIVE=True` reruns only the worked material example, making up to five billed OpenRouter requests using an environment key or a hidden prompt. Other gallery examples remain recorded. Modified replay inputs are rejected instead of silently reusing old answers.
 
-## Sources and scope
+The standalone `index.html` works offline. To edit the interface, change `src/viewer.html`, then run:
 
-- Natural photograph: [Chelsea, scikit-image](https://scikit-image.org/docs/0.26.x/api/skimage.data.html#skimage.data.chelsea), Stefan van der Walt, CC0. 451 × 300 JPEG derivative.
-- Satellite figure: [NASA Earth Observatory, Urbanization of Dubai](https://science.nasa.gov/earth/earth-observatory/urbanization-of-dubai-united-arab-emirates-7153/), images by Jesse Allen, data provided by Laura Rocchio, Landsat Project Science Office. Three panels show 2006, 1990, and 1973. The complete 540 × 1060 figure was resized to 522 × 1024 before inference; no panel or target-specific crop was selected beforehand. [NASA image-use guidance](https://www.nasa.gov/nasa-brand-center/images-and-media/) permits educational reuse with credit.
-- Material and PCB: public `chewinggum/03.jpg`, `pcb4/01.jpg`, and healthy references from [Liquid's inspection playground](https://d1.liquid.ai/#/inspect), with box metadata from its [manifest](https://d1.liquid.ai/demos/data/inspection/index.json). Images correspond to Amazon Science's [VisA dataset](https://registry.opendata.aws/visa/), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): Yang Zou, Jongheon Jeong, Latha Pemula, Dongqing Zhang, and Onkar Dabeer. Images are cropped/resized and overlays added for the walkthrough.
+```sh
+python3 scripts/build_site.py
+```
 
-The crop policy has at most two grid decisions. It does not learn an optimal scale. An APERTURE extension could compare `keep this scale / inspect a child / recover wider context / unresolved` while holding its downstream concept scorer fixed; that adaptive-scale experiment remains untested.
+This uses only the Python standard library, rebuilds the page from the executed notebook, and syncs the viewer into the notebook's embedded assets and output. `scripts/validate.py` checks the embedded geometry and recorded input images with Pillow. GitHub Pages serves the repository root; no backend or external JavaScript is used.
 
-For GitHub Pages, serve `index.html` and the notebook from the repository root. There is no build step, external JavaScript, inference backend, or credential in the page.
+[Validation report](VALIDATION.md) · [native-resolution reading trace](recordings/reading-native.json) · [512 px reading trace](recordings/reading-512px.json)
+
+## Sources
+
+- All inference responses: actual `liquid/d1.2-20261116` through OpenRouter, 17 November 2026. New continuations were recorded once without retries or replacing misses. Times are HTTP durations, including network/provider behavior.
+- Small-text register: generated teaching fixture, fixed seed 29; code B742, Menlo 12 px, original 2000 × 1400. The full-resolution and 512 px experiments are distinct conditions. An analogous portable fixture generator is included in `scripts/make_fixture.py`; the exact recorded image is embedded in the notebook.
+- [Chelsea / scikit-image](https://scikit-image.org/docs/0.26.x/api/skimage.data.html#skimage.data.chelsea): Stefan van der Walt, CC0; 451 × 300 JPEG derivative.
+- [Dubai / NASA Earth Observatory](https://science.nasa.gov/earth/earth-observatory/urbanization-of-dubai-united-arab-emirates-7153/): Jesse Allen, data provided by Laura Rocchio, Landsat Project Science Office. Panels are 2006, 1990, and 1973. The complete 540 × 1060 figure was resized to 522 × 1024 before inference. [NASA image-use guidance](https://www.nasa.gov/nasa-brand-center/images-and-media/) permits educational reuse with credit.
+- Material and PCB: `chewinggum/03.jpg`, `pcb4/01.jpg`, and healthy references from [Liquid's playground](https://d1.liquid.ai/#/inspect), with boxes from its [manifest](https://d1.liquid.ai/demos/data/inspection/index.json). Images correspond to Amazon Science [VisA](https://registry.opendata.aws/visa/), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): Yang Zou, Jongheon Jeong, Latha Pemula, Dongqing Zhang, and Onkar Dabeer. Crops and overlays are added for this lesson.
+
+This uses a fixed crop policy. Learned or optimal scale selection, including the proposed APERTURE extension, remains untested.
