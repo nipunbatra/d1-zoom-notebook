@@ -1,0 +1,42 @@
+{
+  "note": "Excerpts from existing recorded probes; no new inference calls were made for fixture preparation. Raw responses preserved; images and credentials not included.",
+  "retrieved_docs_date": "2026-11-18",
+  "official_openrouter_contract": "https://openrouter.ai/docs/guides/community/multimodal-decisions#what-each-endpoint-accepts",
+  "official_liquid_contract": "https://docs.liquid.ai/lfm/models/d1#locate-objects",
+  "probes": [
+    {
+      "source_file": "box-probe.json",
+      "timestamp": "2026-11-17T06:07:19.633421+00:00",
+      "endpoint": "https://openrouter.ai/api/alpha/decisions",
+      "http_status": 400,
+      "latency_ms": 386.82,
+      "requested_model": "liquid/d1.2",
+      "question_types": {
+        "regions": "box"
+      },
+      "response": {
+        "error": {
+          "message": "Liquid does not accept box questions; question 1 is a box",
+          "code": 400
+        }
+      }
+    },
+    {
+      "source_file": "boxes-probe.json",
+      "timestamp": "2026-11-17T06:06:42.862393+00:00",
+      "endpoint": "https://openrouter.ai/api/alpha/decisions",
+      "http_status": 400,
+      "latency_ms": 481.34,
+      "requested_model": "liquid/d1.2",
+      "question_types": {
+        "regions": "boxes"
+      },
+      "response": {
+        "error": {
+          "message": "[\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [],\n    \"note\": \"No matching discriminator\",\n    \"discriminator\": \"type\",\n    \"options\": [\n      \"noul\",\n      \"choice\",\n      \"score\",\n      \"box\"\n    ],\n    \"path\": [\n      \"questions\",\n      \"regions\",\n      \"type\"\n    ],\n    \"message\": \"Invalid discriminator value. Expected 'noul' | 'choice' | 'score' | 'box'\"\n  }\n]",
+          "code": 400
+        }
+      }
+    }
+  ]
+}

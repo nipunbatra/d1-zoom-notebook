@@ -1,0 +1,177 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenRouter Liquid box support · live API evidence</title><style>
+*{box-sizing:border-box}body{font:15px/1.45 system-ui,sans-serif;color:#1e2925;background:#f4f6f2;margin:0}main{max-width:1180px;margin:auto;padding:24px}h1{font-size:28px;margin:0 0 4px}h2{font-size:20px;margin:0}h2 span{font-weight:450;color:#526259}.lede{margin:0 0 12px;color:#526259}.context{border-left:3px solid #77866d;padding:5px 12px;margin-bottom:14px}.context p{margin:3px 0}code,pre{font-family:ui-monospace,SFMono-Regular,monospace;font-size:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}article{background:white;border:1px solid #d7ddd4;border-radius:7px;padding:15px;min-width:0}article header{display:flex;justify-content:space-between;align-items:center}.ok b{color:#256141}.bad b{color:#a13c28}.timing{font-size:12px;color:#66706a;margin:2px 0 10px}.prompt{margin:0 0 8px;font-size:13px;min-height:38px}.label{font-size:11px;color:#66706a;text-transform:uppercase;letter-spacing:.04em;margin:5px 0}pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;padding:9px;background:#f5f6f3;border-radius:3px;line-height:1.5}.note{margin:14px 0 6px;font-size:13px}a{color:#315c48}details{margin:12px 0}summary{cursor:pointer}details pre{background:white;margin-top:10px}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding:15px}}
+</style><main><h1>Liquid on OpenRouter: choice works, box is rejected</h1><p class="lede">Four fresh API requests · 18 November 2026 · measured responses, not illustrative outputs</p><div class="context"><p><code>POST https://openrouter.ai/api/alpha/decisions</code></p><p>Same image, text input, account and provider setting. Authorization header omitted entirely.</p></div><section class="grid"><article class="ok"><header><h2>D1.2 <span>· choice</span></h2><b>HTTP 200</b></header><p class="timing">1126.40 ms HTTP · 05:17:54.745 UTC</p><p class="prompt"><strong>Question:</strong> Is an orange-outlined fastener tray present in the image?</p><p class="label">Response: answers.target (excerpt)</p><pre>{&quot;type&quot;: &quot;choice&quot;, &quot;choice&quot;: &quot;present&quot;,
+ &quot;probabilities&quot;: {&quot;present&quot;: 0.9795584251674743, &quot;absent&quot;: 0.020441574832525684}}</pre></article><article class="bad"><header><h2>D1.2 <span>· box</span></h2><b>HTTP 400</b></header><p class="timing">310.70 ms HTTP · 05:17:55.056 UTC</p><p class="prompt"><strong>Question:</strong> The entire orange-outlined fastener tray, including every screw and plain ring.</p><p class="label">Response: complete error body</p><pre>{
+  &quot;error&quot;: {
+    &quot;message&quot;: &quot;Liquid does not accept box questions; question 1 is a box&quot;,
+    &quot;code&quot;: 400
+  }
+}</pre></article><article class="ok"><header><h2>D1.2 Ultra <span>· choice</span></h2><b>HTTP 200</b></header><p class="timing">843.15 ms HTTP · 05:17:55.900 UTC</p><p class="prompt"><strong>Question:</strong> Is an orange-outlined fastener tray present in the image?</p><p class="label">Response: answers.target (excerpt)</p><pre>{&quot;type&quot;: &quot;choice&quot;, &quot;choice&quot;: &quot;present&quot;,
+ &quot;probabilities&quot;: {&quot;present&quot;: 0.996766919131866, &quot;absent&quot;: 0.003233080868133965}}</pre></article><article class="bad"><header><h2>D1.2 Ultra <span>· box</span></h2><b>HTTP 400</b></header><p class="timing">322.57 ms HTTP · 05:17:56.224 UTC</p><p class="prompt"><strong>Question:</strong> The entire orange-outlined fastener tray, including every screw and plain ring.</p><p class="label">Response: complete error body</p><pre>{
+  &quot;error&quot;: {
+    &quot;message&quot;: &quot;Liquid does not accept box questions; question 1 is a box&quot;,
+    &quot;code&quot;: 400
+  }
+}</pre></article></section><p class="note"><strong>Confirmed scope:</strong> the OpenRouter Liquid adapter rejects <code>box</code>. This does not test Liquid's native object-localization API.</p><p class="note"><a href="recordings/openrouter-box-check-20261118.json">Saved requests + responses + timings</a> · <a href="https://openrouter.ai/docs/guides/community/multimodal-decisions#what-each-endpoint-accepts">Official provider capability table</a> · <a href="https://x.com/nipun_batra/status/2122919961417154708">Question posted to Liquid</a></p><details><summary>Reproduction details</summary><p>Image JPEG SHA-256: <code>d6a17c8f6d549b6a10965282ad591a65a80658e29ad1a6b621449307c2b2bb73</code>. Same state and image verified across all four requests. Provider fallbacks disabled. Choice criteria are present/absent; box requests a location. HTTP durations include provider/network delay. The successful-response account ID is omitted from saved metadata. No API key appears in any artifact.</p><details><summary>D1.2 · choice: full request and response</summary><p>Authorization header never recorded. Image bytes abbreviated only in this view.</p><pre>{
+  &quot;request&quot;: {
+    &quot;model&quot;: &quot;liquid/d1.2&quot;,
+    &quot;state&quot;: [
+      &quot;Inspect the orange-outlined fastener tray in this image.&quot;,
+      {
+        &quot;type&quot;: &quot;image_url&quot;,
+        &quot;image_url&quot;: {
+          &quot;url&quot;: &quot;[identical JPEG payload omitted here; complete bytes in saved JSON]&quot;
+        }
+      }
+    ],
+    &quot;questions&quot;: {
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;choice&quot;,
+        &quot;instructions&quot;: &quot;Is an orange-outlined fastener tray present in the image?&quot;,
+        &quot;criteria&quot;: {
+          &quot;present&quot;: &quot;An orange-outlined fastener tray is visible.&quot;,
+          &quot;absent&quot;: &quot;No orange-outlined fastener tray is visible.&quot;
+        }
+      }
+    },
+    &quot;provider&quot;: {
+      &quot;allow_fallbacks&quot;: false
+    }
+  },
+  &quot;response&quot;: {
+    &quot;model&quot;: &quot;liquid/d1.2-20261116&quot;,
+    &quot;answers&quot;: {
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;choice&quot;,
+        &quot;choice&quot;: &quot;present&quot;,
+        &quot;probabilities&quot;: {
+          &quot;present&quot;: 0.9795584251674743,
+          &quot;absent&quot;: 0.020441574832525684
+        },
+        &quot;confidence&quot;: 0.9591168503349485
+      }
+    },
+    &quot;usage&quot;: {
+      &quot;input_tokens&quot;: 336,
+      &quot;output_tokens&quot;: 0,
+      &quot;cost&quot;: 6.72e-06,
+      &quot;is_byok&quot;: false,
+      &quot;cost_details&quot;: {
+        &quot;upstream_inference_cost&quot;: 6.72e-06,
+        &quot;upstream_inference_prompt_cost&quot;: 6.72e-06,
+        &quot;upstream_inference_completions_cost&quot;: 0
+      }
+    },
+    &quot;id&quot;: &quot;gen-dec-1794979074-cgSoYosctw7k6udcV65q&quot;,
+    &quot;provider&quot;: &quot;Liquid&quot;
+  }
+}</pre></details><details><summary>D1.2 · box: full request and response</summary><p>Authorization header never recorded. Image bytes abbreviated only in this view.</p><pre>{
+  &quot;request&quot;: {
+    &quot;model&quot;: &quot;liquid/d1.2&quot;,
+    &quot;state&quot;: [
+      &quot;Inspect the orange-outlined fastener tray in this image.&quot;,
+      {
+        &quot;type&quot;: &quot;image_url&quot;,
+        &quot;image_url&quot;: {
+          &quot;url&quot;: &quot;[identical JPEG payload omitted here; complete bytes in saved JSON]&quot;
+        }
+      }
+    ],
+    &quot;questions&quot;: {
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;box&quot;,
+        &quot;instructions&quot;: &quot;The entire orange-outlined fastener tray, including every screw and plain ring.&quot;
+      }
+    },
+    &quot;provider&quot;: {
+      &quot;allow_fallbacks&quot;: false
+    }
+  },
+  &quot;response&quot;: {
+    &quot;error&quot;: {
+      &quot;message&quot;: &quot;Liquid does not accept box questions; question 1 is a box&quot;,
+      &quot;code&quot;: 400
+    }
+  }
+}</pre></details><details><summary>D1.2 Ultra · choice: full request and response</summary><p>Authorization header never recorded. Image bytes abbreviated only in this view.</p><pre>{
+  &quot;request&quot;: {
+    &quot;model&quot;: &quot;liquid/d1.2-ultra&quot;,
+    &quot;state&quot;: [
+      &quot;Inspect the orange-outlined fastener tray in this image.&quot;,
+      {
+        &quot;type&quot;: &quot;image_url&quot;,
+        &quot;image_url&quot;: {
+          &quot;url&quot;: &quot;[identical JPEG payload omitted here; complete bytes in saved JSON]&quot;
+        }
+      }
+    ],
+    &quot;questions&quot;: {
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;choice&quot;,
+        &quot;instructions&quot;: &quot;Is an orange-outlined fastener tray present in the image?&quot;,
+        &quot;criteria&quot;: {
+          &quot;present&quot;: &quot;An orange-outlined fastener tray is visible.&quot;,
+          &quot;absent&quot;: &quot;No orange-outlined fastener tray is visible.&quot;
+        }
+      }
+    },
+    &quot;provider&quot;: {
+      &quot;allow_fallbacks&quot;: false
+    }
+  },
+  &quot;response&quot;: {
+    &quot;model&quot;: &quot;liquid/d1.2-ultra-20261116&quot;,
+    &quot;answers&quot;: {
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;choice&quot;,
+        &quot;choice&quot;: &quot;present&quot;,
+        &quot;probabilities&quot;: {
+          &quot;present&quot;: 0.996766919131866,
+          &quot;absent&quot;: 0.003233080868133965
+        },
+        &quot;confidence&quot;: 0.993533838263732
+      }
+    },
+    &quot;usage&quot;: {
+      &quot;input_tokens&quot;: 336,
+      &quot;output_tokens&quot;: 0,
+      &quot;cost&quot;: 1.4112e-05,
+      &quot;is_byok&quot;: false,
+      &quot;cost_details&quot;: {
+        &quot;upstream_inference_cost&quot;: 1.4112e-05,
+        &quot;upstream_inference_prompt_cost&quot;: 1.4112e-05,
+        &quot;upstream_inference_completions_cost&quot;: 0
+      }
+    },
+    &quot;id&quot;: &quot;gen-dec-1794979075-1IalxYW83EREoc7gCIJN&quot;,
+    &quot;provider&quot;: &quot;Liquid&quot;
+  }
+}</pre></details><details><summary>D1.2 Ultra · box: full request and response</summary><p>Authorization header never recorded. Image bytes abbreviated only in this view.</p><pre>{
+  &quot;request&quot;: {
+    &quot;model&quot;: &quot;liquid/d1.2-ultra&quot;,
+    &quot;state&quot;: [
+      &quot;Inspect the orange-outlined fastener tray in this image.&quot;,
+      {
+        &quot;type&quot;: &quot;image_url&quot;,
+        &quot;image_url&quot;: {
+          &quot;url&quot;: &quot;[identical JPEG payload omitted here; complete bytes in saved JSON]&quot;
+        }
+      }
+    ],
+    &quot;questions&quot;: {
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;box&quot;,
+        &quot;instructions&quot;: &quot;The entire orange-outlined fastener tray, including every screw and plain ring.&quot;
+      }
+    },
+    &quot;provider&quot;: {
+      &quot;allow_fallbacks&quot;: false
+    }
+  },
+  &quot;response&quot;: {
+    &quot;error&quot;: {
+      &quot;message&quot;: &quot;Liquid does not accept box questions; question 1 is a box&quot;,
+      &quot;code&quot;: 400
+    }
+  }
+}</pre></details></details></main></html>

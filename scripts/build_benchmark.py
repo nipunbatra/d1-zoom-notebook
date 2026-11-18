@@ -1,13 +1,23 @@
 """Build a portable notebook and static HTML from the exact recorded benchmark."""
 from pathlib import Path
 import base64, html, json, zlib
+from record_comparison import MODELS, recording_path
 
 ROOT=Path(__file__).resolve().parents[1]
 def build():
-    development=json.loads((ROOT/"recordings/context-development-v1.json").read_text())
-    testing=json.loads((ROOT/"recordings/context-test-v1.json").read_text())
+    development={"suites":[json.loads(recording_path("development",key).read_text()) for key in MODELS]}
+    testing={"suites":[json.loads(recording_path("test",key).read_text()) for key in MODELS]}
     for experiment in (development,testing):
         assert all(t['runs'].get('adaptive',{}).get('complete') and t['runs'].get('repeat',{}).get('complete') for s in experiment['suites'] for t in s['tasks']),"Recording incomplete"
+        for suite in experiment["suites"]:
+            # Correct display/export metadata without changing frozen source records.
+            suite["legacy_protocol"] = dict(suite["protocol"])
+            suite["protocol"].pop("route_instructions", None)
+            suite["protocol"]["policy"] = (
+                "Answer first. Python uses the recorded confidence gate to request at most one follow-up. "
+                "Adaptive sends the overview and a pixel-derived orange-frame crop; repeat sends the overview again. "
+                + suite["controller_spec"]["selection"])
+            suite["protocol"]["metadata_note"] = "Presentation metadata corrected; legacy_protocol preserves the original recording metadata. Requests and responses are unchanged."
     data=development["suites"][0]
     data["model_suites"]=development["suites"][1:]
     data["test_suites"]=testing["suites"]
@@ -18,11 +28,11 @@ def build():
     def md(source):cells.append(dict(cell_type="markdown",metadata={},source=source.splitlines(keepends=True)))
     def code(source,fold=False):
         cells.append(dict(cell_type="code",execution_count=None,metadata={"jupyter":{"source_hidden":True},"tags":["hide-input"]} if fold else {},source=source.splitlines(keepends=True),outputs=[]))
-    md("# Look closer: preserve context, zoom when uncertain\n\nRun all cells. **Replay is offline and free.** The worked example counts cross-slot screws. The viewer includes 16 development and 16 new test examples, two models, all prompts, inputs and responses.\n\nAnswer once. If the answer is uncertain, find the **visible orange frame from image pixels**, preserve the whole panel, and answer with both overview and detail. This is a controlled framed-task experiment, not general learned grounding. All final answers are **multiple choice**.")
+    md("# Look closer: preserve context, zoom when uncertain\n\nRun all cells. **Replay is offline and free.** The worked example counts cross-slot screws. Fresh recordings from 18 November 2026 cover all 32 existing examples with **D1.2, D1.2 Ultra and Gemini Decision 1**. Every prompt, image, answer and HTTP timing is included.\n\nAnswer once. If the answer is uncertain, find the **visible orange frame from image pixels**, preserve the whole panel, and answer with both overview and detail. This is a controlled framed-task experiment, not general learned grounding. All final answers are **multiple choice**.")
     code('''LIVE = False  # True reruns only this example: at most 2 billed requests.
 TASK_ID = "count-02"
-SPLIT = "test"  # "development" keeps the original examples and earlier policies.
-MODEL_KEY = "d1"  # "gemini" selects Google's native Decisions API recordings.
+SPLIT = "test"  # "test" or "development": 16 examples in each split.
+MODEL_KEY = "d1"  # "d1", "ultra", or "gemini". Both Liquid models use OpenRouter.
 import base64, copy, html, io, json, os, zlib
 from IPython.display import display, HTML
 try:
@@ -41,7 +51,7 @@ if LIVE:
     code("# Embedded images, exact recordings and offline viewer. No helper files.\nBUNDLE = json.loads(zlib.decompress(base64.b64decode('"+packed+"')))\ndata = copy.deepcopy(BUNDLE['data'])\n",True)
     md("## 1. Shared instructions and task\n\nD1 uses `state`; Gemini uses `input`. Both use typed `questions`, rather than chat roles. The shared policy below plays the role of a system prompt and is **actually prepended to every question's instructions**. No ground-truth labels or coordinates are sent.")
     code('''suites = data["test_suites"] if SPLIT == "test" else [data, *data["model_suites"]]
-active = suites[0 if MODEL_KEY == "d1" else 1]
+active = next(s for s in suites if s["model_key"] == MODEL_KEY)
 policy = active["protocol"]["system_prompt"]
 task = next(t for t in active["tasks"] if t["id"] == TASK_ID)
 original = Image.open(io.BytesIO(base64.b64decode(task["image"].split(",", 1)[1]))).convert("RGB")
@@ -61,10 +71,9 @@ def ask(method, window):
         call = copy.deepcopy(task["runs"][method]["calls"][len(runs[method]["calls"])])
         body, sizes, digests, windows = build_request(task, original, MODEL, method, window)
         assert call["stage"] == "answer" and call["window"] == window
-        assert call["body"]["questions"] == body["questions"], "Prompt changed: use LIVE=True."
-        text_key = "input" if MODEL_KEY == "gemini" else "state"
-        assert call["body"][text_key][0] == body[text_key][0] and call["body"]["model"] == MODEL
-        assert call.get("pixel_hashes",[call["pixel_hash"]]) == digests and call["input_size"] == sizes[-1], "Image changed: use LIVE=True."
+        assert call["body"] == body, "Request or image bytes changed: use LIVE=True."
+        assert call["pixel_hashes"] == digests and call["input_sizes"] == sizes
+        assert call["input_windows"] == windows and call["input_size"] == sizes[-1]
     runs[method]["calls"].append(call)
     show(call, method)
     return call
@@ -119,12 +128,12 @@ for method in ("direct", "adaptive"):
     print(method, outcome(task, runs[method]))
 print("Evidence:", task["evidence"]["facts"])
 if LIVE:
-    live_recording = {"task_id": TASK_ID, "protocol": active["protocol"], "runs": runs}
+    live_recording = {"task_id": TASK_ID, "protocol": active["protocol"], "controller_spec": active["controller_spec"], "runs": runs}
     download = base64.b64encode(json.dumps(live_recording).encode()).decode()
     display(HTML('<a download="live-rerun.json" href="data:application/json;base64,'+download+'">Download this live rerun</a>'))
     print("Fresh results are shown above. The gallery below preserves the original recorded benchmark.")
 ''')
-    md("## 6. Compare models, policies and the new test set\n\nThe new test set was generated and the controller frozen before its inference. Development retains the old grid-crop and model-stop policies. The repeat-full-view control uses the same gate and selection rule but repeats the original image; it matches request count, not image tokens. The table includes all outcomes and timings.\n\nThis tests new labels/layouts within the same framed synthetic task families. It does not establish performance on natural images or learned optimal scale selection. Thermal values are illustrative, not measurements.")
+    md("## 6. Compare all three models\n\nThe Benchmark tab separates development and test results. All three models were rerun on the same existing 32 fixtures on 18 November with the unchanged, frozen controller. These are repeat evaluations, not a newly unseen test set. Earlier recordings are retained in the repository.\n\nThe repeat-full-view control uses the same gate and selection rule but repeats the original image; it matches request count, not image tokens. Each total includes every model call, including rejected follow-ups. Synthetic thermal values are illustrative, not measurements.")
     code('''data["selected_id"] = TASK_ID
 data["selected_model"] = active["protocol"]["model"]
 data["selected_split"] = SPLIT

@@ -1,0 +1,289 @@
+split,model_key,model,id,family,method,truth,answer,top,correct,status,elapsed_ms,calls,baseline_correct,selected_call,followup
+development,d1,Liquid D1.2,text-01,Small text,direct,B742,B742,['B742'],True,correct,1983.12,1,True,0,False
+development,d1,Liquid D1.2,text-01,Small text,adaptive,B742,B742,['B742'],True,correct,1983.12,1,True,0,False
+development,d1,Liquid D1.2,text-01,Small text,repeat,B742,B742,['B742'],True,correct,1983.12,1,True,0,False
+development,d1,Liquid D1.2,text-02,Small text,direct,K193,K193,['K193'],True,correct,1508.96,1,True,0,False
+development,d1,Liquid D1.2,text-02,Small text,repeat,K193,K193,['K193'],True,correct,2949.98,2,True,0,True
+development,d1,Liquid D1.2,text-02,Small text,adaptive,K193,K193,['K193'],True,correct,3158.88,2,True,1,True
+development,d1,Liquid D1.2,count-01,Counting,direct,8,8,['8'],True,correct,873.74,1,True,0,False
+development,d1,Liquid D1.2,count-01,Counting,adaptive,8,8,['8'],True,correct,2191.71,2,True,1,True
+development,d1,Liquid D1.2,count-01,Counting,repeat,8,8,['8'],True,correct,1776.13,2,True,0,True
+development,d1,Liquid D1.2,count-02,Counting,direct,11,12,['12'],False,wrong,2084.26,1,False,0,False
+development,d1,Liquid D1.2,count-02,Counting,repeat,11,12,['12'],False,wrong,2915.35,2,False,0,True
+development,d1,Liquid D1.2,count-02,Counting,adaptive,11,10,['10'],False,wrong,3111.45,2,False,1,True
+development,d1,Liquid D1.2,thermal-01,Thermal colorbar,direct,48,48,['48'],True,correct,991.09,1,True,0,False
+development,d1,Liquid D1.2,thermal-01,Thermal colorbar,adaptive,48,48,['48'],True,correct,2231.6,2,True,1,True
+development,d1,Liquid D1.2,thermal-01,Thermal colorbar,repeat,48,48,['48'],True,correct,1934.0,2,True,1,True
+development,d1,Liquid D1.2,thermal-02,Thermal colorbar,direct,62,uncertain,['uncertain'],False,abstained,915.85,1,False,0,False
+development,d1,Liquid D1.2,thermal-02,Thermal colorbar,repeat,62,uncertain,['uncertain'],False,abstained,1888.61,2,False,0,True
+development,d1,Liquid D1.2,thermal-02,Thermal colorbar,adaptive,62,62,['62'],True,correct,2149.27,2,False,1,True
+development,d1,Liquid D1.2,chart-01,Chart reading,direct,37,37,['37'],True,correct,1117.95,1,True,0,False
+development,d1,Liquid D1.2,chart-01,Chart reading,adaptive,37,37,['37'],True,correct,1117.95,1,True,0,False
+development,d1,Liquid D1.2,chart-01,Chart reading,repeat,37,37,['37'],True,correct,1117.95,1,True,0,False
+development,d1,Liquid D1.2,chart-02,Chart reading,direct,62,62,['62'],True,correct,1186.72,1,True,0,False
+development,d1,Liquid D1.2,chart-02,Chart reading,repeat,62,62,['62'],True,correct,2320.46,2,True,0,True
+development,d1,Liquid D1.2,chart-02,Chart reading,adaptive,62,62,['62'],True,correct,2429.83,2,True,1,True
+development,d1,Liquid D1.2,table-01,Table lookup,direct,17,17,['17'],True,correct,944.81,1,True,0,False
+development,d1,Liquid D1.2,table-01,Table lookup,adaptive,17,17,['17'],True,correct,944.81,1,True,0,False
+development,d1,Liquid D1.2,table-01,Table lookup,repeat,17,17,['17'],True,correct,944.81,1,True,0,False
+development,d1,Liquid D1.2,table-02,Table lookup,direct,24,14,['14'],False,wrong,822.23,1,False,0,False
+development,d1,Liquid D1.2,table-02,Table lookup,repeat,24,14,['14'],False,wrong,3164.84,2,False,0,True
+development,d1,Liquid D1.2,table-02,Table lookup,adaptive,24,24,['24'],True,correct,1794.61,2,False,1,True
+development,d1,Liquid D1.2,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,1036.49,1,True,0,False
+development,d1,Liquid D1.2,circuit-01,Circuit continuity,adaptive,broken,broken,['broken'],True,correct,2104.69,2,True,1,True
+development,d1,Liquid D1.2,circuit-01,Circuit continuity,repeat,broken,broken,['broken'],True,correct,1985.25,2,True,1,True
+development,d1,Liquid D1.2,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,976.52,1,True,0,False
+development,d1,Liquid D1.2,circuit-02,Circuit continuity,repeat,continuous,continuous,['continuous'],True,correct,976.52,1,True,0,False
+development,d1,Liquid D1.2,circuit-02,Circuit continuity,adaptive,continuous,continuous,['continuous'],True,correct,976.52,1,True,0,False
+development,d1,Liquid D1.2,spatial-01,Spatial relation,direct,left,left,['left'],True,correct,1101.54,1,True,0,False
+development,d1,Liquid D1.2,spatial-01,Spatial relation,adaptive,left,left,['left'],True,correct,1101.54,1,True,0,False
+development,d1,Liquid D1.2,spatial-01,Spatial relation,repeat,left,left,['left'],True,correct,1101.54,1,True,0,False
+development,d1,Liquid D1.2,spatial-02,Spatial relation,direct,below,below,['below'],True,correct,1019.68,1,True,0,False
+development,d1,Liquid D1.2,spatial-02,Spatial relation,repeat,below,below,['below'],True,correct,1019.68,1,True,0,False
+development,d1,Liquid D1.2,spatial-02,Spatial relation,adaptive,below,below,['below'],True,correct,1019.68,1,True,0,False
+development,d1,Liquid D1.2,gauge-01,Analog gauge,direct,40,30,['30'],False,wrong,1087.82,1,False,0,False
+development,d1,Liquid D1.2,gauge-01,Analog gauge,adaptive,40,40,['40'],True,correct,2264.59,2,False,1,True
+development,d1,Liquid D1.2,gauge-01,Analog gauge,repeat,40,40,['40'],True,correct,2012.7,2,False,1,True
+development,d1,Liquid D1.2,gauge-02,Analog gauge,direct,70,70,['70'],True,correct,940.36,1,True,0,False
+development,d1,Liquid D1.2,gauge-02,Analog gauge,repeat,70,70,['70'],True,correct,1848.72,2,True,0,True
+development,d1,Liquid D1.2,gauge-02,Analog gauge,adaptive,70,70,['70'],True,correct,2179.65,2,True,1,True
+development,ultra,Liquid D1.2 Ultra,text-01,Small text,direct,B742,B742,['B742'],True,correct,5697.85,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,text-01,Small text,adaptive,B742,B742,['B742'],True,correct,5697.85,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,text-01,Small text,repeat,B742,B742,['B742'],True,correct,5697.85,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,text-02,Small text,direct,K193,uncertain,['uncertain'],False,abstained,5369.32,1,False,0,False
+development,ultra,Liquid D1.2 Ultra,text-02,Small text,repeat,K193,uncertain,['uncertain'],False,abstained,7021.49,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,text-02,Small text,adaptive,K193,K193,['K193'],True,correct,6428.14,2,False,1,True
+development,ultra,Liquid D1.2 Ultra,count-01,Counting,direct,8,10,['10'],False,wrong,5139.65,1,False,0,False
+development,ultra,Liquid D1.2 Ultra,count-01,Counting,adaptive,8,10,['10'],False,wrong,6286.11,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,count-01,Counting,repeat,8,10,['10'],False,wrong,7337.89,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,count-02,Counting,direct,11,10,['10'],False,wrong,1094.9,1,False,0,False
+development,ultra,Liquid D1.2 Ultra,count-02,Counting,repeat,11,10,['10'],False,wrong,2745.11,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,count-02,Counting,adaptive,11,10,['10'],False,wrong,2863.36,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,thermal-01,Thermal colorbar,direct,48,48,['48'],True,correct,1732.43,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,thermal-01,Thermal colorbar,adaptive,48,48,['48'],True,correct,1732.43,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,thermal-01,Thermal colorbar,repeat,48,48,['48'],True,correct,1732.43,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,thermal-02,Thermal colorbar,direct,62,uncertain,['uncertain'],False,abstained,864.88,1,False,0,False
+development,ultra,Liquid D1.2 Ultra,thermal-02,Thermal colorbar,repeat,62,uncertain,['uncertain'],False,abstained,1614.8,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,thermal-02,Thermal colorbar,adaptive,62,62,['62'],True,correct,1990.18,2,False,1,True
+development,ultra,Liquid D1.2 Ultra,chart-01,Chart reading,direct,37,37,['37'],True,correct,1049.66,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,chart-01,Chart reading,adaptive,37,37,['37'],True,correct,1049.66,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,chart-01,Chart reading,repeat,37,37,['37'],True,correct,1049.66,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,chart-02,Chart reading,direct,62,uncertain,['uncertain'],False,abstained,894.68,1,False,0,False
+development,ultra,Liquid D1.2 Ultra,chart-02,Chart reading,repeat,62,uncertain,['uncertain'],False,abstained,1811.33,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,chart-02,Chart reading,adaptive,62,62,['62'],True,correct,1855.22,2,False,1,True
+development,ultra,Liquid D1.2 Ultra,table-01,Table lookup,direct,17,17,['17'],True,correct,1023.32,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,table-01,Table lookup,adaptive,17,17,['17'],True,correct,1023.32,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,table-01,Table lookup,repeat,17,17,['17'],True,correct,1023.32,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,table-02,Table lookup,direct,24,uncertain,['uncertain'],False,abstained,938.92,1,False,0,False
+development,ultra,Liquid D1.2 Ultra,table-02,Table lookup,repeat,24,uncertain,['uncertain'],False,abstained,1807.14,2,False,0,True
+development,ultra,Liquid D1.2 Ultra,table-02,Table lookup,adaptive,24,24,['24'],True,correct,2136.02,2,False,1,True
+development,ultra,Liquid D1.2 Ultra,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,717.22,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,circuit-01,Circuit continuity,adaptive,broken,broken,['broken'],True,correct,717.22,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,circuit-01,Circuit continuity,repeat,broken,broken,['broken'],True,correct,717.22,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,787.7,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,circuit-02,Circuit continuity,repeat,continuous,continuous,['continuous'],True,correct,787.7,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,circuit-02,Circuit continuity,adaptive,continuous,continuous,['continuous'],True,correct,787.7,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,spatial-01,Spatial relation,direct,left,left,['left'],True,correct,1232.29,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,spatial-01,Spatial relation,adaptive,left,left,['left'],True,correct,1232.29,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,spatial-01,Spatial relation,repeat,left,left,['left'],True,correct,1232.29,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,spatial-02,Spatial relation,direct,below,below,['below'],True,correct,794.17,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,spatial-02,Spatial relation,repeat,below,below,['below'],True,correct,794.17,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,spatial-02,Spatial relation,adaptive,below,below,['below'],True,correct,794.17,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,gauge-01,Analog gauge,direct,40,40,['40'],True,correct,1143.85,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,gauge-01,Analog gauge,adaptive,40,40,['40'],True,correct,2252.47,2,True,1,True
+development,ultra,Liquid D1.2 Ultra,gauge-01,Analog gauge,repeat,40,40,['40'],True,correct,2226.21,2,True,0,True
+development,ultra,Liquid D1.2 Ultra,gauge-02,Analog gauge,direct,70,70,['70'],True,correct,1656.62,1,True,0,False
+development,ultra,Liquid D1.2 Ultra,gauge-02,Analog gauge,repeat,70,70,['70'],True,correct,2562.44,2,True,0,True
+development,ultra,Liquid D1.2 Ultra,gauge-02,Analog gauge,adaptive,70,70,['70'],True,correct,2721.98,2,True,1,True
+development,gemini,Gemini Decision 1,text-01,Small text,direct,B742,B742,['B742'],True,correct,1889.39,1,True,0,False
+development,gemini,Gemini Decision 1,text-01,Small text,adaptive,B742,B742,['B742'],True,correct,1889.39,1,True,0,False
+development,gemini,Gemini Decision 1,text-01,Small text,repeat,B742,B742,['B742'],True,correct,1889.39,1,True,0,False
+development,gemini,Gemini Decision 1,text-02,Small text,direct,K193,K139,['K139'],False,wrong,908.32,1,False,0,False
+development,gemini,Gemini Decision 1,text-02,Small text,repeat,K193,K139,['K139'],False,wrong,1371.78,2,False,0,True
+development,gemini,Gemini Decision 1,text-02,Small text,adaptive,K193,K193,['K193'],True,correct,1931.25,2,False,1,True
+development,gemini,Gemini Decision 1,count-01,Counting,direct,8,10,['10'],False,wrong,949.93,1,False,0,False
+development,gemini,Gemini Decision 1,count-01,Counting,adaptive,8,8,['8'],True,correct,2059.34,2,False,1,True
+development,gemini,Gemini Decision 1,count-01,Counting,repeat,8,10,['10'],False,wrong,1936.75,2,False,0,True
+development,gemini,Gemini Decision 1,count-02,Counting,direct,11,10,['10'],False,wrong,592.28,1,False,0,False
+development,gemini,Gemini Decision 1,count-02,Counting,repeat,11,10,['10'],False,wrong,1845.22,2,False,0,True
+development,gemini,Gemini Decision 1,count-02,Counting,adaptive,11,10,['10'],False,wrong,1240.92,2,False,1,True
+development,gemini,Gemini Decision 1,thermal-01,Thermal colorbar,direct,48,48,['48'],True,correct,554.9,1,True,0,False
+development,gemini,Gemini Decision 1,thermal-01,Thermal colorbar,adaptive,48,48,['48'],True,correct,554.9,1,True,0,False
+development,gemini,Gemini Decision 1,thermal-01,Thermal colorbar,repeat,48,48,['48'],True,correct,554.9,1,True,0,False
+development,gemini,Gemini Decision 1,thermal-02,Thermal colorbar,direct,62,62,['62'],True,correct,618.71,1,True,0,False
+development,gemini,Gemini Decision 1,thermal-02,Thermal colorbar,repeat,62,62,['62'],True,correct,1151.96,2,True,0,True
+development,gemini,Gemini Decision 1,thermal-02,Thermal colorbar,adaptive,62,62,['62'],True,correct,1948.54,2,True,1,True
+development,gemini,Gemini Decision 1,chart-01,Chart reading,direct,37,37,['37'],True,correct,724.01,1,True,0,False
+development,gemini,Gemini Decision 1,chart-01,Chart reading,adaptive,37,37,['37'],True,correct,724.01,1,True,0,False
+development,gemini,Gemini Decision 1,chart-01,Chart reading,repeat,37,37,['37'],True,correct,724.01,1,True,0,False
+development,gemini,Gemini Decision 1,chart-02,Chart reading,direct,62,62,['62'],True,correct,653.67,1,True,0,False
+development,gemini,Gemini Decision 1,chart-02,Chart reading,repeat,62,62,['62'],True,correct,1666.57,2,True,0,True
+development,gemini,Gemini Decision 1,chart-02,Chart reading,adaptive,62,62,['62'],True,correct,2710.43,2,True,1,True
+development,gemini,Gemini Decision 1,table-01,Table lookup,direct,17,17,['17'],True,correct,1026.84,1,True,0,False
+development,gemini,Gemini Decision 1,table-01,Table lookup,adaptive,17,17,['17'],True,correct,1026.84,1,True,0,False
+development,gemini,Gemini Decision 1,table-01,Table lookup,repeat,17,17,['17'],True,correct,1026.84,1,True,0,False
+development,gemini,Gemini Decision 1,table-02,Table lookup,direct,24,24,['24'],True,correct,678.63,1,True,0,False
+development,gemini,Gemini Decision 1,table-02,Table lookup,repeat,24,24,['24'],True,correct,1262.97,2,True,0,True
+development,gemini,Gemini Decision 1,table-02,Table lookup,adaptive,24,24,['24'],True,correct,1979.49,2,True,1,True
+development,gemini,Gemini Decision 1,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,682.79,1,True,0,False
+development,gemini,Gemini Decision 1,circuit-01,Circuit continuity,adaptive,broken,broken,['broken'],True,correct,682.79,1,True,0,False
+development,gemini,Gemini Decision 1,circuit-01,Circuit continuity,repeat,broken,broken,['broken'],True,correct,682.79,1,True,0,False
+development,gemini,Gemini Decision 1,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,742.09,1,True,0,False
+development,gemini,Gemini Decision 1,circuit-02,Circuit continuity,repeat,continuous,continuous,['continuous'],True,correct,1347.08,2,True,0,True
+development,gemini,Gemini Decision 1,circuit-02,Circuit continuity,adaptive,continuous,continuous,['continuous'],True,correct,1953.97,2,True,1,True
+development,gemini,Gemini Decision 1,spatial-01,Spatial relation,direct,left,left,['left'],True,correct,2723.72,1,True,0,False
+development,gemini,Gemini Decision 1,spatial-01,Spatial relation,adaptive,left,left,['left'],True,correct,2723.72,1,True,0,False
+development,gemini,Gemini Decision 1,spatial-01,Spatial relation,repeat,left,left,['left'],True,correct,2723.72,1,True,0,False
+development,gemini,Gemini Decision 1,spatial-02,Spatial relation,direct,below,below,['below'],True,correct,1594.9,1,True,0,False
+development,gemini,Gemini Decision 1,spatial-02,Spatial relation,repeat,below,below,['below'],True,correct,1594.9,1,True,0,False
+development,gemini,Gemini Decision 1,spatial-02,Spatial relation,adaptive,below,below,['below'],True,correct,1594.9,1,True,0,False
+development,gemini,Gemini Decision 1,gauge-01,Analog gauge,direct,40,40,['40'],True,correct,1337.21,1,True,0,False
+development,gemini,Gemini Decision 1,gauge-01,Analog gauge,adaptive,40,40,['40'],True,correct,1337.21,1,True,0,False
+development,gemini,Gemini Decision 1,gauge-01,Analog gauge,repeat,40,40,['40'],True,correct,1337.21,1,True,0,False
+development,gemini,Gemini Decision 1,gauge-02,Analog gauge,direct,70,80,['80'],False,wrong,1844.49,1,False,0,False
+development,gemini,Gemini Decision 1,gauge-02,Analog gauge,repeat,70,80,['80'],False,wrong,2806.47,2,False,0,True
+development,gemini,Gemini Decision 1,gauge-02,Analog gauge,adaptive,70,70,['70'],True,correct,2931.39,2,False,1,True
+test,d1,Liquid D1.2,text-01,Small text,direct,R582,R852,['R852'],False,wrong,997.14,1,False,0,False
+test,d1,Liquid D1.2,text-01,Small text,adaptive,R582,R852,['R852'],False,wrong,997.14,1,False,0,False
+test,d1,Liquid D1.2,text-01,Small text,repeat,R582,R852,['R852'],False,wrong,997.14,1,False,0,False
+test,d1,Liquid D1.2,text-02,Small text,direct,M614,M614,['M614'],True,correct,1033.44,1,True,0,False
+test,d1,Liquid D1.2,text-02,Small text,repeat,M614,M614,['M614'],True,correct,2200.05,2,True,1,True
+test,d1,Liquid D1.2,text-02,Small text,adaptive,M614,M614,['M614'],True,correct,2041.94,2,True,1,True
+test,d1,Liquid D1.2,count-01,Counting,direct,7,7,['7'],True,correct,796.06,1,True,0,False
+test,d1,Liquid D1.2,count-01,Counting,adaptive,7,7,['7'],True,correct,796.06,1,True,0,False
+test,d1,Liquid D1.2,count-01,Counting,repeat,7,7,['7'],True,correct,796.06,1,True,0,False
+test,d1,Liquid D1.2,count-02,Counting,direct,13,9,['9'],False,wrong,1024.4,1,False,0,False
+test,d1,Liquid D1.2,count-02,Counting,repeat,13,9,['9'],False,wrong,1950.3,2,False,0,True
+test,d1,Liquid D1.2,count-02,Counting,adaptive,13,13,['13'],True,correct,2070.24,2,False,1,True
+test,d1,Liquid D1.2,thermal-01,Thermal colorbar,direct,54,54,['54'],True,correct,1509.78,1,True,0,False
+test,d1,Liquid D1.2,thermal-01,Thermal colorbar,adaptive,54,54,['54'],True,correct,1509.78,1,True,0,False
+test,d1,Liquid D1.2,thermal-01,Thermal colorbar,repeat,54,54,['54'],True,correct,1509.78,1,True,0,False
+test,d1,Liquid D1.2,thermal-02,Thermal colorbar,direct,76,36,['36'],False,wrong,826.38,1,False,0,False
+test,d1,Liquid D1.2,thermal-02,Thermal colorbar,repeat,76,36,['36'],False,wrong,2651.8,2,False,0,True
+test,d1,Liquid D1.2,thermal-02,Thermal colorbar,adaptive,76,76,['76'],True,correct,2851.33,2,False,1,True
+test,d1,Liquid D1.2,chart-01,Chart reading,direct,42,42,['42'],True,correct,1715.55,1,True,0,False
+test,d1,Liquid D1.2,chart-01,Chart reading,adaptive,42,42,['42'],True,correct,1715.55,1,True,0,False
+test,d1,Liquid D1.2,chart-01,Chart reading,repeat,42,42,['42'],True,correct,1715.55,1,True,0,False
+test,d1,Liquid D1.2,chart-02,Chart reading,direct,58,42,['42'],False,wrong,924.98,1,False,0,False
+test,d1,Liquid D1.2,chart-02,Chart reading,repeat,58,42,['42'],False,wrong,1985.05,2,False,0,True
+test,d1,Liquid D1.2,chart-02,Chart reading,adaptive,58,58,['58'],True,correct,1974.9,2,False,1,True
+test,d1,Liquid D1.2,table-01,Table lookup,direct,26,26,['26'],True,correct,1913.94,1,True,0,False
+test,d1,Liquid D1.2,table-01,Table lookup,adaptive,26,26,['26'],True,correct,1913.94,1,True,0,False
+test,d1,Liquid D1.2,table-01,Table lookup,repeat,26,26,['26'],True,correct,1913.94,1,True,0,False
+test,d1,Liquid D1.2,table-02,Table lookup,direct,31,21,['21'],False,wrong,807.51,1,False,0,False
+test,d1,Liquid D1.2,table-02,Table lookup,repeat,31,21,['21'],False,wrong,1600.78,2,False,0,True
+test,d1,Liquid D1.2,table-02,Table lookup,adaptive,31,31,['31'],True,correct,1861.19,2,False,1,True
+test,d1,Liquid D1.2,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,719.37,1,True,0,False
+test,d1,Liquid D1.2,circuit-01,Circuit continuity,adaptive,broken,broken,['broken'],True,correct,1802.01,2,True,1,True
+test,d1,Liquid D1.2,circuit-01,Circuit continuity,repeat,broken,broken,['broken'],True,correct,1753.99,2,True,1,True
+test,d1,Liquid D1.2,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,907.91,1,True,0,False
+test,d1,Liquid D1.2,circuit-02,Circuit continuity,repeat,continuous,continuous,['continuous'],True,correct,907.91,1,True,0,False
+test,d1,Liquid D1.2,circuit-02,Circuit continuity,adaptive,continuous,continuous,['continuous'],True,correct,907.91,1,True,0,False
+test,d1,Liquid D1.2,spatial-01,Spatial relation,direct,above,above,['above'],True,correct,913.63,1,True,0,False
+test,d1,Liquid D1.2,spatial-01,Spatial relation,adaptive,above,above,['above'],True,correct,913.63,1,True,0,False
+test,d1,Liquid D1.2,spatial-01,Spatial relation,repeat,above,above,['above'],True,correct,913.63,1,True,0,False
+test,d1,Liquid D1.2,spatial-02,Spatial relation,direct,right,right,['right'],True,correct,976.28,1,True,0,False
+test,d1,Liquid D1.2,spatial-02,Spatial relation,repeat,right,right,['right'],True,correct,976.28,1,True,0,False
+test,d1,Liquid D1.2,spatial-02,Spatial relation,adaptive,right,right,['right'],True,correct,976.28,1,True,0,False
+test,d1,Liquid D1.2,gauge-01,Analog gauge,direct,20,20,['20'],True,correct,823.57,1,True,0,False
+test,d1,Liquid D1.2,gauge-01,Analog gauge,adaptive,20,20,['20'],True,correct,1925.23,2,True,1,True
+test,d1,Liquid D1.2,gauge-01,Analog gauge,repeat,20,30,['30'],False,wrong,2120.48,2,True,1,True
+test,d1,Liquid D1.2,gauge-02,Analog gauge,direct,90,70,['70'],False,wrong,773.55,1,False,0,False
+test,d1,Liquid D1.2,gauge-02,Analog gauge,repeat,90,70,['70'],False,wrong,1993.25,2,False,0,True
+test,d1,Liquid D1.2,gauge-02,Analog gauge,adaptive,90,90,['90'],True,correct,2416.32,2,False,1,True
+test,ultra,Liquid D1.2 Ultra,text-01,Small text,direct,R582,R582,['R582'],True,correct,823.87,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,text-01,Small text,adaptive,R582,R582,['R582'],True,correct,823.87,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,text-01,Small text,repeat,R582,R582,['R582'],True,correct,823.87,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,text-02,Small text,direct,M614,uncertain,['uncertain'],False,abstained,829.67,1,False,0,False
+test,ultra,Liquid D1.2 Ultra,text-02,Small text,repeat,M614,uncertain,['uncertain'],False,abstained,1552.13,2,False,0,True
+test,ultra,Liquid D1.2 Ultra,text-02,Small text,adaptive,M614,M614,['M614'],True,correct,1804.34,2,False,1,True
+test,ultra,Liquid D1.2 Ultra,count-01,Counting,direct,7,7,['7'],True,correct,3610.63,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,count-01,Counting,adaptive,7,7,['7'],True,correct,5226.42,2,True,1,True
+test,ultra,Liquid D1.2 Ultra,count-01,Counting,repeat,7,7,['7'],True,correct,5087.28,2,True,1,True
+test,ultra,Liquid D1.2 Ultra,count-02,Counting,direct,13,11,['11'],False,wrong,925.7,1,False,0,False
+test,ultra,Liquid D1.2 Ultra,count-02,Counting,repeat,13,11,['11'],False,wrong,2205.98,2,False,0,True
+test,ultra,Liquid D1.2 Ultra,count-02,Counting,adaptive,13,13,['13'],True,correct,1934.73,2,False,1,True
+test,ultra,Liquid D1.2 Ultra,thermal-01,Thermal colorbar,direct,54,54,['54'],True,correct,1058.71,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,thermal-01,Thermal colorbar,adaptive,54,54,['54'],True,correct,1058.71,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,thermal-01,Thermal colorbar,repeat,54,54,['54'],True,correct,1058.71,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,thermal-02,Thermal colorbar,direct,76,uncertain,['uncertain'],False,abstained,801.17,1,False,0,False
+test,ultra,Liquid D1.2 Ultra,thermal-02,Thermal colorbar,repeat,76,uncertain,['uncertain'],False,abstained,1651.38,2,False,0,True
+test,ultra,Liquid D1.2 Ultra,thermal-02,Thermal colorbar,adaptive,76,76,['76'],True,correct,1839.71,2,False,1,True
+test,ultra,Liquid D1.2 Ultra,chart-01,Chart reading,direct,42,42,['42'],True,correct,1375.62,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,chart-01,Chart reading,adaptive,42,42,['42'],True,correct,1375.62,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,chart-01,Chart reading,repeat,42,42,['42'],True,correct,1375.62,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,chart-02,Chart reading,direct,58,uncertain,['uncertain'],False,abstained,940.48,1,False,0,False
+test,ultra,Liquid D1.2 Ultra,chart-02,Chart reading,repeat,58,uncertain,['uncertain'],False,abstained,2323.29,2,False,0,True
+test,ultra,Liquid D1.2 Ultra,chart-02,Chart reading,adaptive,58,58,['58'],True,correct,2663.02,2,False,1,True
+test,ultra,Liquid D1.2 Ultra,table-01,Table lookup,direct,26,26,['26'],True,correct,963.2,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,table-01,Table lookup,adaptive,26,26,['26'],True,correct,963.2,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,table-01,Table lookup,repeat,26,26,['26'],True,correct,963.2,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,table-02,Table lookup,direct,31,uncertain,['uncertain'],False,abstained,885.28,1,False,0,False
+test,ultra,Liquid D1.2 Ultra,table-02,Table lookup,repeat,31,uncertain,['uncertain'],False,abstained,1751.63,2,False,0,True
+test,ultra,Liquid D1.2 Ultra,table-02,Table lookup,adaptive,31,31,['31'],True,correct,2033.6,2,False,1,True
+test,ultra,Liquid D1.2 Ultra,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,752.0,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,circuit-01,Circuit continuity,adaptive,broken,broken,['broken'],True,correct,2192.2,2,True,1,True
+test,ultra,Liquid D1.2 Ultra,circuit-01,Circuit continuity,repeat,broken,broken,['broken'],True,correct,2168.52,2,True,0,True
+test,ultra,Liquid D1.2 Ultra,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,1011.23,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,circuit-02,Circuit continuity,repeat,continuous,continuous,['continuous'],True,correct,1011.23,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,circuit-02,Circuit continuity,adaptive,continuous,continuous,['continuous'],True,correct,1011.23,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,spatial-01,Spatial relation,direct,above,above,['above'],True,correct,1323.68,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,spatial-01,Spatial relation,adaptive,above,above,['above'],True,correct,1323.68,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,spatial-01,Spatial relation,repeat,above,above,['above'],True,correct,1323.68,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,spatial-02,Spatial relation,direct,right,right,['right'],True,correct,1297.83,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,spatial-02,Spatial relation,repeat,right,right,['right'],True,correct,1297.83,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,spatial-02,Spatial relation,adaptive,right,right,['right'],True,correct,1297.83,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,gauge-01,Analog gauge,direct,20,20,['20'],True,correct,891.85,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,gauge-01,Analog gauge,adaptive,20,20,['20'],True,correct,891.85,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,gauge-01,Analog gauge,repeat,20,20,['20'],True,correct,891.85,1,True,0,False
+test,ultra,Liquid D1.2 Ultra,gauge-02,Analog gauge,direct,90,uncertain,['uncertain'],False,abstained,826.08,1,False,0,False
+test,ultra,Liquid D1.2 Ultra,gauge-02,Analog gauge,repeat,90,uncertain,['uncertain'],False,abstained,1590.54,2,False,0,True
+test,ultra,Liquid D1.2 Ultra,gauge-02,Analog gauge,adaptive,90,90,['90'],True,correct,2205.22,2,False,1,True
+test,gemini,Gemini Decision 1,text-01,Small text,direct,R582,R582,['R582'],True,correct,1027.36,1,True,0,False
+test,gemini,Gemini Decision 1,text-01,Small text,adaptive,R582,R582,['R582'],True,correct,1027.36,1,True,0,False
+test,gemini,Gemini Decision 1,text-01,Small text,repeat,R582,R582,['R582'],True,correct,1027.36,1,True,0,False
+test,gemini,Gemini Decision 1,text-02,Small text,direct,M614,M614,['M614'],True,correct,1052.61,1,True,0,False
+test,gemini,Gemini Decision 1,text-02,Small text,repeat,M614,M614,['M614'],True,correct,1955.06,2,True,0,True
+test,gemini,Gemini Decision 1,text-02,Small text,adaptive,M614,M614,['M614'],True,correct,1661.15,2,True,1,True
+test,gemini,Gemini Decision 1,count-01,Counting,direct,7,7,['7'],True,correct,1172.93,1,True,0,False
+test,gemini,Gemini Decision 1,count-01,Counting,adaptive,7,7,['7'],True,correct,1894.1,2,True,1,True
+test,gemini,Gemini Decision 1,count-01,Counting,repeat,7,7,['7'],True,correct,1641.48,2,True,0,True
+test,gemini,Gemini Decision 1,count-02,Counting,direct,13,11,['11'],False,wrong,732.73,1,False,0,False
+test,gemini,Gemini Decision 1,count-02,Counting,repeat,13,11,['11'],False,wrong,1182.21,2,False,0,True
+test,gemini,Gemini Decision 1,count-02,Counting,adaptive,13,11,['11'],False,wrong,1480.75,2,False,1,True
+test,gemini,Gemini Decision 1,thermal-01,Thermal colorbar,direct,54,54,['54'],True,correct,987.15,1,True,0,False
+test,gemini,Gemini Decision 1,thermal-01,Thermal colorbar,adaptive,54,54,['54'],True,correct,987.15,1,True,0,False
+test,gemini,Gemini Decision 1,thermal-01,Thermal colorbar,repeat,54,54,['54'],True,correct,987.15,1,True,0,False
+test,gemini,Gemini Decision 1,thermal-02,Thermal colorbar,direct,76,76,['76'],True,correct,1225.1,1,True,0,False
+test,gemini,Gemini Decision 1,thermal-02,Thermal colorbar,repeat,76,76,['76'],True,correct,2246.21,2,True,0,True
+test,gemini,Gemini Decision 1,thermal-02,Thermal colorbar,adaptive,76,76,['76'],True,correct,2770.26,2,True,1,True
+test,gemini,Gemini Decision 1,chart-01,Chart reading,direct,42,42,['42'],True,correct,1305.14,1,True,0,False
+test,gemini,Gemini Decision 1,chart-01,Chart reading,adaptive,42,42,['42'],True,correct,1305.14,1,True,0,False
+test,gemini,Gemini Decision 1,chart-01,Chart reading,repeat,42,42,['42'],True,correct,1305.14,1,True,0,False
+test,gemini,Gemini Decision 1,chart-02,Chart reading,direct,58,58,['58'],True,correct,3605.03,1,True,0,False
+test,gemini,Gemini Decision 1,chart-02,Chart reading,repeat,58,58,['58'],True,correct,4108.13,2,True,0,True
+test,gemini,Gemini Decision 1,chart-02,Chart reading,adaptive,58,58,['58'],True,correct,4255.23,2,True,1,True
+test,gemini,Gemini Decision 1,table-01,Table lookup,direct,26,26,['26'],True,correct,1806.12,1,True,0,False
+test,gemini,Gemini Decision 1,table-01,Table lookup,adaptive,26,26,['26'],True,correct,1806.12,1,True,0,False
+test,gemini,Gemini Decision 1,table-01,Table lookup,repeat,26,26,['26'],True,correct,1806.12,1,True,0,False
+test,gemini,Gemini Decision 1,table-02,Table lookup,direct,31,21,['21'],False,wrong,3848.38,1,False,0,False
+test,gemini,Gemini Decision 1,table-02,Table lookup,repeat,31,21,['21'],False,wrong,5010.58,2,False,0,True
+test,gemini,Gemini Decision 1,table-02,Table lookup,adaptive,31,31,['31'],True,correct,5955.42,2,False,1,True
+test,gemini,Gemini Decision 1,circuit-01,Circuit continuity,direct,broken,broken,['broken'],True,correct,925.15,1,True,0,False
+test,gemini,Gemini Decision 1,circuit-01,Circuit continuity,adaptive,broken,broken,['broken'],True,correct,925.15,1,True,0,False
+test,gemini,Gemini Decision 1,circuit-01,Circuit continuity,repeat,broken,broken,['broken'],True,correct,925.15,1,True,0,False
+test,gemini,Gemini Decision 1,circuit-02,Circuit continuity,direct,continuous,continuous,['continuous'],True,correct,1696.55,1,True,0,False
+test,gemini,Gemini Decision 1,circuit-02,Circuit continuity,repeat,continuous,continuous,['continuous'],True,correct,2187.11,2,True,0,True
+test,gemini,Gemini Decision 1,circuit-02,Circuit continuity,adaptive,continuous,continuous,['continuous'],True,correct,3315.65,2,True,1,True
+test,gemini,Gemini Decision 1,spatial-01,Spatial relation,direct,above,above,['above'],True,correct,1272.18,1,True,0,False
+test,gemini,Gemini Decision 1,spatial-01,Spatial relation,adaptive,above,above,['above'],True,correct,1272.18,1,True,0,False
+test,gemini,Gemini Decision 1,spatial-01,Spatial relation,repeat,above,above,['above'],True,correct,1272.18,1,True,0,False
+test,gemini,Gemini Decision 1,spatial-02,Spatial relation,direct,right,right,['right'],True,correct,845.19,1,True,0,False
+test,gemini,Gemini Decision 1,spatial-02,Spatial relation,repeat,right,right,['right'],True,correct,845.19,1,True,0,False
+test,gemini,Gemini Decision 1,spatial-02,Spatial relation,adaptive,right,right,['right'],True,correct,845.19,1,True,0,False
+test,gemini,Gemini Decision 1,gauge-01,Analog gauge,direct,20,20,['20'],True,correct,916.66,1,True,0,False
+test,gemini,Gemini Decision 1,gauge-01,Analog gauge,adaptive,20,20,['20'],True,correct,916.66,1,True,0,False
+test,gemini,Gemini Decision 1,gauge-01,Analog gauge,repeat,20,20,['20'],True,correct,916.66,1,True,0,False
+test,gemini,Gemini Decision 1,gauge-02,Analog gauge,direct,90,90,['90'],True,correct,1716.74,1,True,0,False
+test,gemini,Gemini Decision 1,gauge-02,Analog gauge,repeat,90,90,['90'],True,correct,2681.29,2,True,0,True
+test,gemini,Gemini Decision 1,gauge-02,Analog gauge,adaptive,90,90,['90'],True,correct,3324.35,2,True,1,True

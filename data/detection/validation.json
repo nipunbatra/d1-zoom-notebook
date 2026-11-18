@@ -1,0 +1,18 @@
+{
+  "verified_at": "2026-11-18T05:15:33.987528+00:00",
+  "status": "passed",
+  "checks": [
+    "Four JPEG dimensions decoded with macOS sips match original COCO records",
+    "Each stored image hash and byte length matches manifest",
+    "Original annotation member CRC32 matches ZIP central directory",
+    "All 28 subset annotations exactly equal official member records",
+    "Five queries exactly match target-category annotations",
+    "Derived normalized coordinates in bounds",
+    "No predictions or newly executed model calls"
+  ],
+  "images": 4,
+  "queries": 5,
+  "original_annotations": 28,
+  "visual_review": "All four selected original images viewed; dense banana plant marked as an ambiguous count reference, not exhaustive ground truth.",
+  "model_calls_during_preparation": 0
+}

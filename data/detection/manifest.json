@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "prepared_at": "2026-11-18T05:13:36.912461+00:00",
+  "dataset": "COCO 2017 validation",
+  "purpose": "Small source-attributed fixture set for future OpenRouter counting checks; no inference results. Annotation boxes are dataset labels, never model predictions.",
+  "selection": "Purposive four-image smoke-test set, selected by category/count/license before any model inference; not random or representative. All source image records identify CC BY 2.0.",
+  "annotation_scope": "All COCO instance annotations for the four images are preserved unchanged in coco-val2017-subset.json. Manifest queries filter by target category. Annotation counts do not establish that every visible target is labeled, or that COCO instance boundaries equal intuitive object-count boundaries.",
+  "source": {
+    "download_page": "https://cocodataset.org/#download",
+    "archive_url": "https://s3.amazonaws.com/images.cocodataset.org/annotations/annotations_trainval2017.zip",
+    "archive_size_bytes": 252907541,
+    "archive_etag": "f4bbac642086de4f52a3fdda2de5fa2c",
+    "member": "annotations/instances_val2017.json",
+    "member_size_bytes": 19987840,
+    "member_sha256": "e8c7f7908f1d7278341fae127d0da654f102f11bd7b21d8aeefa635b8c810b6f",
+    "member_crc32": "2e9b8b45",
+    "retrieval": "HTTPS byte ranges from the COCO S3 bucket, then raw DEFLATE decompression; four unmodified JPEGs downloaded from the same bucket.",
+    "subset": "coco-val2017-subset.json"
+  },
+  "images": [
+    {
+      "coco_image_id": 13004,
+      "path": "images/000000013004.jpg",
+      "width": 375,
+      "height": 500,
+      "sha256": "09d489992329d2a17186a82781c7d23d8c687ee580567babc7494f9bc8b1220a",
+      "bytes": 129165,
+      "modified": false,
+      "download_url": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000013004.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000013004.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4049/4208826429_3432119060_z.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by/2.0/",
+        "id": 4,
+        "name": "Attribution License"
+      },
+      "attribution_note": "Original COCO image record and Flickr source URL preserved. COCO does not include a photographer-name field."
+    },
+    {
+      "coco_image_id": 79651,
+      "path": "images/000000079651.jpg",
+      "width": 640,
+      "height": 478,
+      "sha256": "05107da6f72e8e495bbfaa0e8d638433cb5fd9c35d43bf193ff2b12db0c684bb",
+      "bytes": 222884,
+      "modified": false,
+      "download_url": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000079651.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000079651.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3720/9659844494_a70f5d61c0_z.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by/2.0/",
+        "id": 4,
+        "name": "Attribution License"
+      },
+      "attribution_note": "Original COCO image record and Flickr source URL preserved. COCO does not include a photographer-name field."
+    },
+    {
+      "coco_image_id": 78959,
+      "path": "images/000000078959.jpg",
+      "width": 384,
+      "height": 640,
+      "sha256": "e42bf26adeaac411f4714a1caa9a1c6488c2016cc6c4333f4ae1a5ab43f0b2cb",
+      "bytes": 149479,
+      "modified": false,
+      "download_url": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000078959.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000078959.jpg",
+      "flickr_url": "http://farm9.staticflickr.com/8423/7623696666_ebf4bcbec7_z.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by/2.0/",
+        "id": 4,
+        "name": "Attribution License"
+      },
+      "attribution_note": "Original COCO image record and Flickr source URL preserved. COCO does not include a photographer-name field."
+    },
+    {
+      "coco_image_id": 333772,
+      "path": "images/000000333772.jpg",
+      "width": 500,
+      "height": 375,
+      "sha256": "45abc24e5d525f4da47cafca857b5db9b08e8b4ee7fe03bcd3d6b2683ebfbcc7",
+      "bytes": 145415,
+      "modified": false,
+      "download_url": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000333772.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000333772.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4038/4212612461_ca16f4e7fb_z.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by/2.0/",
+        "id": 4,
+        "name": "Attribution License"
+      },
+      "attribution_note": "Original COCO image record and Flickr source URL preserved. COCO does not include a photographer-name field."
+    }
+  ],
+  "queries": [
+    {
+      "id": "banana-single",
+      "label": "One annotated banana",
+      "coco_image_id": 13004,
+      "image_path": "images/000000013004.jpg",
+      "target": "banana",
+      "category_id": 52,
+      "annotation_count": 1,
+      "annotation_ids": [
+        1043946
+      ],
+      "annotation_boxes": [
+        {
+          "annotation_id": 1043946,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 26679.727,
+          "bbox_xywh": [
+            44.71,
+            72.94,
+            298.82,
+            217.65
+          ],
+          "bbox_xyxy": [
+            44.71,
+            72.94,
+            343.53,
+            290.59000000000003
+          ],
+          "bbox_normalized_xyxy": [
+            0.11922666666666668,
+            0.14587999999999998,
+            0.9160799999999999,
+            0.58118
+          ]
+        }
+      ],
+      "model_result": null,
+      "notes": "Count is the number of COCO noncrowd annotations for this target."
+    },
+    {
+      "id": "banana-few",
+      "label": "Two annotated bananas",
+      "coco_image_id": 79651,
+      "image_path": "images/000000079651.jpg",
+      "target": "banana",
+      "category_id": 52,
+      "annotation_count": 2,
+      "annotation_ids": [
+        1041806,
+        1541876
+      ],
+      "annotation_boxes": [
+        {
+          "annotation_id": 1041806,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 21918.357850000004,
+          "bbox_xywh": [
+            294.32,
+            345.7,
+            338.36,
+            113.86
+          ],
+          "bbox_xyxy": [
+            294.32,
+            345.7,
+            632.6800000000001,
+            459.56
+          ],
+          "bbox_normalized_xyxy": [
+            0.459875,
+            0.7232217573221758,
+            0.9885625000000001,
+            0.9614225941422594
+          ]
+        },
+        {
+          "annotation_id": 1541876,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 18588.54859999999,
+          "bbox_xywh": [
+            179.38,
+            365.48,
+            312.58,
+            108.49
+          ],
+          "bbox_xyxy": [
+            179.38,
+            365.48,
+            491.96,
+            473.97
+          ],
+          "bbox_normalized_xyxy": [
+            0.28028125,
+            0.7646025104602511,
+            0.7686875,
+            0.9915690376569039
+          ]
+        }
+      ],
+      "model_result": null,
+      "notes": "Count is the number of COCO noncrowd annotations for this target."
+    },
+    {
+      "id": "banana-many",
+      "label": "Banana plant with 13 annotations",
+      "coco_image_id": 78959,
+      "image_path": "images/000000078959.jpg",
+      "target": "banana",
+      "category_id": 52,
+      "annotation_count": 13,
+      "annotation_ids": [
+        1044175,
+        1045457,
+        1542699,
+        1542843,
+        1543157,
+        1543315,
+        1543615,
+        1544688,
+        1544842,
+        1904268,
+        1904492,
+        1904531,
+        2110435
+      ],
+      "annotation_boxes": [
+        {
+          "annotation_id": 1044175,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 2104.0471500000003,
+          "bbox_xywh": [
+            244.77,
+            62.73,
+            62.8,
+            70.2
+          ],
+          "bbox_xyxy": [
+            244.77,
+            62.73,
+            307.57,
+            132.93
+          ],
+          "bbox_normalized_xyxy": [
+            0.637421875,
+            0.098015625,
+            0.8009635416666666,
+            0.20770312500000002
+          ]
+        },
+        {
+          "annotation_id": 1045457,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 2022.2395500000018,
+          "bbox_xywh": [
+            239.89,
+            132.04,
+            97.58,
+            36.8
+          ],
+          "bbox_xyxy": [
+            239.89,
+            132.04,
+            337.46999999999997,
+            168.83999999999997
+          ],
+          "bbox_normalized_xyxy": [
+            0.6247135416666666,
+            0.20631249999999998,
+            0.878828125,
+            0.26381249999999995
+          ]
+        },
+        {
+          "annotation_id": 1542699,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 1981.9799999999989,
+          "bbox_xywh": [
+            198.7,
+            23.08,
+            31.97,
+            90.75
+          ],
+          "bbox_xyxy": [
+            198.7,
+            23.08,
+            230.67,
+            113.83
+          ],
+          "bbox_normalized_xyxy": [
+            0.5174479166666667,
+            0.0360625,
+            0.600703125,
+            0.177859375
+          ]
+        },
+        {
+          "annotation_id": 1542843,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 1084.15335,
+          "bbox_xywh": [
+            222.6,
+            175.6,
+            68.0,
+            26.64
+          ],
+          "bbox_xyxy": [
+            222.6,
+            175.6,
+            290.6,
+            202.24
+          ],
+          "bbox_normalized_xyxy": [
+            0.5796875,
+            0.274375,
+            0.7567708333333334,
+            0.316
+          ]
+        },
+        {
+          "annotation_id": 1543157,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 3250.13215,
+          "bbox_xywh": [
+            196.94,
+            179.62,
+            115.65,
+            61.23
+          ],
+          "bbox_xyxy": [
+            196.94,
+            179.62,
+            312.59000000000003,
+            240.85
+          ],
+          "bbox_normalized_xyxy": [
+            0.5128645833333333,
+            0.28065625,
+            0.8140364583333334,
+            0.376328125
+          ]
+        },
+        {
+          "annotation_id": 1543315,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 1710.8892000000005,
+          "bbox_xywh": [
+            225.56,
+            40.65,
+            37.83,
+            76.27
+          ],
+          "bbox_xyxy": [
+            225.56,
+            40.65,
+            263.39,
+            116.91999999999999
+          ],
+          "bbox_normalized_xyxy": [
+            0.5873958333333333,
+            0.06351562499999999,
+            0.6859114583333333,
+            0.18268749999999997
+          ]
+        },
+        {
+          "annotation_id": 1543615,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 1919.0122499999998,
+          "bbox_xywh": [
+            254.67,
+            0.53,
+            52.52,
+            90.04
+          ],
+          "bbox_xyxy": [
+            254.67,
+            0.53,
+            307.19,
+            90.57000000000001
+          ],
+          "bbox_normalized_xyxy": [
+            0.663203125,
+            0.0008281250000000001,
+            0.7999739583333333,
+            0.141515625
+          ]
+        },
+        {
+          "annotation_id": 1544688,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 781.0677499999997,
+          "bbox_xywh": [
+            165.99,
+            120.99,
+            28.8,
+            41.32
+          ],
+          "bbox_xyxy": [
+            165.99,
+            120.99,
+            194.79000000000002,
+            162.31
+          ],
+          "bbox_normalized_xyxy": [
+            0.43226562500000004,
+            0.189046875,
+            0.507265625,
+            0.253609375
+          ]
+        },
+        {
+          "annotation_id": 1544842,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 3177.5067500000005,
+          "bbox_xywh": [
+            153.31,
+            0.0,
+            79.33,
+            79.21
+          ],
+          "bbox_xyxy": [
+            153.31,
+            0.0,
+            232.64,
+            79.21
+          ],
+          "bbox_normalized_xyxy": [
+            0.39924479166666665,
+            0.0,
+            0.6058333333333333,
+            0.12376562499999999
+          ]
+        },
+        {
+          "annotation_id": 1904268,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 3278.388099999999,
+          "bbox_xywh": [
+            80.02,
+            118.8,
+            88.09,
+            81.23
+          ],
+          "bbox_xyxy": [
+            80.02,
+            118.8,
+            168.11,
+            200.03
+          ],
+          "bbox_normalized_xyxy": [
+            0.20838541666666666,
+            0.18562499999999998,
+            0.43778645833333335,
+            0.312546875
+          ]
+        },
+        {
+          "annotation_id": 1904492,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 1876.9814999999992,
+          "bbox_xywh": [
+            159.8,
+            67.11,
+            53.55,
+            69.46
+          ],
+          "bbox_xyxy": [
+            159.8,
+            67.11,
+            213.35000000000002,
+            136.57
+          ],
+          "bbox_normalized_xyxy": [
+            0.4161458333333334,
+            0.104859375,
+            0.5555989583333334,
+            0.213390625
+          ]
+        },
+        {
+          "annotation_id": 1904531,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 1685.31605,
+          "bbox_xywh": [
+            136.95,
+            38.28,
+            66.49,
+            62.21
+          ],
+          "bbox_xyxy": [
+            136.95,
+            38.28,
+            203.44,
+            100.49000000000001
+          ],
+          "bbox_normalized_xyxy": [
+            0.356640625,
+            0.059812500000000005,
+            0.5297916666666667,
+            0.15701562500000002
+          ]
+        },
+        {
+          "annotation_id": 2110435,
+          "category_id": 52,
+          "iscrowd": 0,
+          "area": 568.7401000000002,
+          "bbox_xywh": [
+            263.84,
+            45.63,
+            31.41,
+            44.42
+          ],
+          "bbox_xyxy": [
+            263.84,
+            45.63,
+            295.25,
+            90.05000000000001
+          ],
+          "bbox_normalized_xyxy": [
+            0.6870833333333333,
+            0.07129687500000001,
+            0.7688802083333334,
+            0.140703125
+          ]
+        }
+      ],
+      "model_result": null,
+      "notes": "Dense plant: occlusion and COCO instance conventions make annotation count an imperfect visual-count reference. Audit before using count agreement as accuracy."
+    },
+    {
+      "id": "cats-pair",
+      "label": "Two annotated cats",
+      "coco_image_id": 333772,
+      "image_path": "images/000000333772.jpg",
+      "target": "cat",
+      "category_id": 17,
+      "annotation_count": 2,
+      "annotation_ids": [
+        48212,
+        273435
+      ],
+      "annotation_boxes": [
+        {
+          "annotation_id": 48212,
+          "category_id": 17,
+          "iscrowd": 0,
+          "area": 27260.991950000003,
+          "bbox_xywh": [
+            171.34,
+            152.53,
+            224.46,
+            199.39
+          ],
+          "bbox_xyxy": [
+            171.34,
+            152.53,
+            395.8,
+            351.91999999999996
+          ],
+          "bbox_normalized_xyxy": [
+            0.34268,
+            0.40674666666666665,
+            0.7916,
+            0.9384533333333333
+          ]
+        },
+        {
+          "annotation_id": 273435,
+          "category_id": 17,
+          "iscrowd": 0,
+          "area": 17306.081050000008,
+          "bbox_xywh": [
+            67.42,
+            123.03,
+            376.68,
+            167.7
+          ],
+          "bbox_xyxy": [
+            67.42,
+            123.03,
+            444.1,
+            290.73
+          ],
+          "bbox_normalized_xyxy": [
+            0.13484000000000002,
+            0.32808,
+            0.8882000000000001,
+            0.7752800000000001
+          ]
+        }
+      ],
+      "model_result": null,
+      "notes": "Count is the number of COCO noncrowd annotations for this target."
+    },
+    {
+      "id": "banana-absent",
+      "label": "No banana annotations in the cats photo",
+      "coco_image_id": 333772,
+      "image_path": "images/000000333772.jpg",
+      "target": "banana",
+      "category_id": 52,
+      "annotation_count": 0,
+      "annotation_ids": [],
+      "annotation_boxes": [],
+      "model_result": null,
+      "notes": "Absent-target query means zero COCO annotations of this category; not proof of exhaustive negative labeling."
+    }
+  ],
+  "predictions": [],
+  "evaluation": {
+    "status": "not_run",
+    "model_calls": 0,
+    "future_count_metric": "Absolute difference and exact agreement with annotation_count; call this annotation-count agreement, not exhaustive counting accuracy.",
+    "future_detection_metric": "If genuine model boxes become available: maximum-cardinality one-to-one IoU >= 0.5 matches, TP matched, FP unmatched predictions, FN unmatched target annotations; precision and recall separate from count error.",
+    "absent_target": "With no target annotations, any predicted target box is FP. Recall denominator is zero: report undefined (null), not 100%.",
+    "not_coco_ap": "Single IoU threshold on a purposive tiny sample; not COCO AP and not a benchmark claim."
+  }
+}

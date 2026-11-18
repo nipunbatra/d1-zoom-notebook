@@ -1,4 +1,4 @@
-"""Rebuild HTML and notebook from recordings/mini-benchmark-v2.json."""
+"""Rebuild HTML and notebook from the current three-model recordings."""
 from build_benchmark import build
 
 if __name__ == "__main__":

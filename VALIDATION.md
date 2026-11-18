@@ -1,34 +1,40 @@
-# Verification — 17 November 2026
+# Verification — 18 November 2026
 
-## Frozen experiment and accuracy
+## Fresh round and accuracy
 
-- Original 16 development images regenerate byte for byte unchanged. Old D1 and Gemini response records are preserved exactly.
-- Generated 16 new test images across the same eight families with new labels/layouts, fixed seed 2026111703. The controller, prompt code, generator and test manifest were hashed at 10:03:19 UTC before any test inference. No test-driven retuning.
-- New-test exact accuracy: D1 direct **9/16**, repeated full view **9/16**, revised controller **15/16**. Gemini direct **14/16**, repeat **14/16**, revised **15/16**. D1 gains six and Gemini gains one, with zero regressions in this sample.
-- Development: D1 direct 12 → revised 16; Gemini direct 12 → revised 15. Repeat controls remain 12. These are development scores and clearly separated from the new test set.
-- Selection replay reproduces every `selected_call`, confidence gate, fallback, crop proposal and acceptance reason from the saved inputs. A rejected follow-up does not replace the selected initial answer in scoring.
-- Correctness means a unique highest-probability answer matching the label; ties and abstentions do not count as correct. Remaining failures are retained: a confident D1 code misread and a Gemini counting error.
+- All three models ran on the same 32 existing fixtures (development16 + test16), with new initial answers for every model/example pair. This is repeat evaluation, not a newly unseen test set.
+- The unchanged controller/prompt/fixture sources and new recorder were hashed before the first request at 05:03:05 UTC. All previous response records are preserved.
+- **196 distinct real API calls**, zero failed attempts, 96 model/example pairs, 288 method outcomes. Baselines are shared only within their corresponding direct/adaptive/repeat comparison.
+- Test16 direct / adaptive / repeat: **D1 10 / 15 / 9; Ultra 10 / 16 / 10; Gemini 14 / 15 / 14**.
+- All32, including development: **D1 22 / 30 / 22; Ultra 20 / 30 / 20; Gemini 26 / 30 / 26**. Zero adaptive correct-to-wrong changes in this run. Model errors and latency outliers remain in the records.
+- Alternated adaptive/repeat request order by fixture. One sequential worker per model, models concurrent. No successful response retried to improve an answer.
 
-## Inputs and comparisons
+## Requests, crops and scoring
 
-- All 228 previous requests were validated. The new paired experiments contain 134 distinct calls: 32 reused development baselines and 102 newly recorded calls. Total across all versions: 330.
-- Every new request was rebuilt exactly from source pixels, including both overview and detail JPEGs. Full input text, instructions, choices, pixel hashes, dimensions and image bytes match the records.
-- Every image-derived crop contains the complete evaluation panel. Evaluation coordinates are consulted only by validation, never by the controller or request builder.
-- Frame detection fallback checks pass for blank images, broken frames, multiple disconnected frames and clipped frames.
-- The repeat control has the same initial answer, gate, request count and acceptance rule as adaptive zoom. It matches requests, **not** image tokens; the adaptive follow-up has two images. No claim that every intervention component is independently isolated.
-- All timings include the initial answer and every follow-up, even rejected ones. API latency outliers are retained. D1/OpenRouter and Gemini/Google native use different transports.
+- Validated earlier records plus all fresh records: exact image bytes, question text, options, provider configuration, model/endpoint, hashes, input sizes/windows and timestamps.
+- Submitted windows are checked against the independently replayed controller proposal; direct and repeat must use the full source image. All adaptive windows retain the complete evaluation panel.
+- Evaluation coordinates are read only by validation, never by inference/controller code. Existing fallback checks cover blank, broken, disconnected and clipped frames.
+- Replayed confidence gates, crop proposals, selected-call indices and acceptance reasons. A rejected follow-up cannot silently replace the initial answer in scoring.
+- Correctness requires a unique top-probability option equal to both the known label and returned choice. Ties and abstentions are unresolved.
+- Direct/adaptive/repeat share the same final task. Repeat matches request count and acceptance rule, not image-token budget. Adaptive follow-ups contain overview plus detail.
+- HTTP totals include every request, even rejected follow-ups; different transports and network/provider delay limit speed comparisons.
+- The raw recording protocol includes inherited grid-policy descriptions. Raw records remain immutable. Viewer/notebook exports use corrected context-v1 metadata, preserve the original under `legacy_protocol`, and leave all request/response bodies unchanged.
 
-## Artifact verification
+## Notebook and viewer
 
-- Notebook has nine code cells, all assets/functions/records embedded. Both provider paths and the no-follow-up path are executed in an otherwise empty directory with network connections blocked.
-- Replay checks actual prompts and pixels. LIVE reruns remain separate from immutable recorded benchmark scores.
-- Viewer distinguishes initial/model-detail answers from Python gate, pixel crop and final selection. Both images sent on a detail request remain inspectable.
-- Standalone browser and live Jupyter checks passed for the separate Look closer/Benchmark tabs, model/example switching, frame crop, exact two-image prompt and benchmark-to-walkthrough navigation. Browser error logs were empty.
-- Tables use `selected_call`, selected model and selected split. Earlier policies remain available only where actually recorded; unsupported policies are not silently substituted.
-- Source code, raw API responses and exact requests are available without exposing credentials. Published content and decoded notebook assets are scanned for credentials, account IDs and local paths.
+- All nine notebook cells executed for D1, Ultra and Gemini in an otherwise empty directory with network connections blocked. A no-follow-up example also passed.
+- Replay compares the **entire rebuilt request body**, including embedded image payloads and provider options, plus image sizes/windows and pixel hashes.
+- Model selection is by stable model key; Ultra cannot accidentally select Gemini. The executed notebook includes the selected model's actual responses and timings.
+- Browser checks passed for three-model dropdown, direct/detail answers, shared instructions, exact two-image prompt, split switching, repeat control, per-example navigation, and the three-row comparison table. The table includes correctness, mean HTTP duration and mean calls for direct, adaptive and repeat. No browser error logs were reported.
+- Independent read-only code review identified four gaps: submitted-window validation, inherited protocol metadata, complete request replay checking, and repeat timing visibility. All were addressed without changing frozen inference code or recorded responses.
+- Credentials are not embedded. Publication scans include generated HTML, notebook outputs and decoded compressed notebook assets.
 
-Run `python3 scripts/validate.py` for the complete checks and regenerated scorecards. The new paired scorecard is `data/context-comparison.csv`; `data/context-protocol-v1.json` stores the frozen hashes and primary outcome.
+## Native object boxes
 
-## Limits
+Both Liquid models rejected the OpenRouter `box` request with HTTP400: `Liquid does not accept box questions; question 1 is a box`. OpenRouter's documented Liquid adapter supports `noul`, `choice`, `score`; this corroborates an integration limitation, not a failure of the native model. Four additional fresh requests with identical image/state reproduced HTTP200 for choice and HTTP400 for box on both models. [Evidence page](openrouter-box-check.html) and [saved requests/responses](recordings/openrouter-box-check-20261118.json) omit authentication headers entirely. No native Liquid API was called. Real-image fixture preparation, source annotations and endpoint evidence are separate from these measured zoom results; see [NATIVE-DETECTION.md](NATIVE-DETECTION.md).
 
-These are marked, procedural, closed-choice images. Orange-frame detection is a task-specific image-processing aid; the controller does not learn general object localization or optimal scale. Confidence thresholds are uncalibrated heuristics. Sixteen new within-family examples, one run per model/method and synthetic thermal labels cannot establish general-world performance, statistical certainty or physical measurement accuracy.
+## Reproduce and limitations
+
+Run `python3 scripts/validate.py` for old and new record checks and scorecards. Current results: [CSV](data/comparison-20261118.csv), [JSON](data/comparison-20261118.json), [frozen protocol](data/comparison-20261118-protocol.json).
+
+These are framed, procedural, closed-choice images with shared task families/styles. Frame detection is an image-processing aid, not learned general localization or optimal scale selection. Confidence thresholds are uncalibrated heuristics. One run per model/method on 32 fixtures cannot establish a general model ranking or statistical certainty. Thermal labels are not physical measurements. COCO preparation supplies source annotations, not model-predicted boxes or an exhaustive count benchmark.
